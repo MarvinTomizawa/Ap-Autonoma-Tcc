@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Assets.Scripts.AutomateBase
+﻿namespace AutomateBase
 {
     public class Ticket
     {
@@ -18,9 +16,7 @@ namespace Assets.Scripts.AutomateBase
 
         public override bool Equals(object obj)
         {
-            var ticket = obj as Ticket;
-
-            if (ticket is null)
+            if (!(obj is Ticket ticket))
             {
                 return false;
             }
@@ -30,6 +26,7 @@ namespace Assets.Scripts.AutomateBase
 
         public override int GetHashCode()
         {
+            // ReSharper disable once BaseObjectGetHashCodeCallInGetHashCode
             return base.GetHashCode();
         }
     }

@@ -1,6 +1,6 @@
-﻿using Assets.Scripts.AutomateBase;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using AutomateBase;
 
 public class Command 
 {
@@ -19,7 +19,7 @@ public class Command
         PoppedTicket = new Ticket(poppedTicketLetter);
         Node = node;
         Index = index;
-        foreach (char letter in pushedTicketLetters)
+        foreach (var letter in pushedTicketLetters)
         {
             PushedTickets.Add(new Ticket(letter));
         }

@@ -3,82 +3,83 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Node : MonoBehaviour
+namespace AutomateBase
 {
-    [SerializeField]
-    public string NodeName;
-    public IList<Command> Commands { get; private set; } = new List<Command>();
-    private QueueBehaviour _queueBehaviour;
-
-    void Start()
+    public class Node : MonoBehaviour
     {
-        _queueBehaviour = FindObjectOfType<QueueBehaviour>();
-    }
+        [SerializeField]
+        public string NodeName;
+        public IList<Command> Commands { get; private set; } = new List<Command>();
+        private QueueBehaviour _queueBehaviour;
 
-    public bool ProcessLetter(char letter, out Node nextNode)
-    {
-        nextNode = this;
-        var ticket = _queueBehaviour.GetNextTicket();
-
-        if(ticket is null)
+        void Start()
         {
-            Debug.Log("A fila está vazia");
-            return false;
+            _queueBehaviour = FindObjectOfType<QueueBehaviour>();
         }
 
-        var command = Commands.FirstOrDefault(x => x.IsCommandForTicket(ticket) && x.ProcessedLetter == letter);
-
-        if (command is null)
+        public bool ProcessLetter(char letter, out Node nextNode)
         {
-            Debug.Log($"Não possui comando para a letra {letter} e ticket {ticket.Letter}.");
-            return false;
+            nextNode = this;
+            var ticket = _queueBehaviour.GetNextTicket();
+
+            if(ticket is null)
+            {
+                Debug.Log("A fila está vazia");
+                return false;
+            }
+
+            var command = Commands.FirstOrDefault(x => x.IsCommandForTicket(ticket) && x.ProcessedLetter == letter);
+
+            if (command is null)
+            {
+                Debug.Log($"Não possui comando para a letra {letter} e ticket {ticket.Letter}.");
+                return false;
+            }
+
+            nextNode = command.Node;
+
+            return _queueBehaviour.ProcessItem(command.PoppedTicket, command.PushedTickets);
         }
 
-        nextNode = command.Node;
-
-        return _queueBehaviour.ProcessItem(command.PoppedTicket, command.PushedTickets);
-    }
-
-    public bool AddCommand(char processedWord, char poppedTicket, string pushedTicket, Node node,  int index)
-    {
-        if (!IsValidCommand(processedWord, poppedTicket))
+        public bool AddCommand(char processedWord, char poppedTicket, string pushedTicket, Node node,  int index)
         {
-            return false;
-        }
+            if (!IsValidCommand(processedWord, poppedTicket))
+            {
+                return false;
+            }
 
-        Commands.Add(new Command(processedWord, poppedTicket, pushedTicket, node, index));
+            Commands.Add(new Command(processedWord, poppedTicket, pushedTicket, node, index));
 
-        return true;
-    }
-
-    private bool IsValidCommand(char processedWord, char poppedTicket)
-    {
-        var command = Commands.FirstOrDefault(x => x.ProcessedLetter == processedWord && x.IsCommandForTicket(ticketLetter: poppedTicket));
-
-        if (command != null)
-        {
-            Debug.LogError($"Já existe um comando para palavra: {processedWord} e ticket: {poppedTicket}");
-            return false;
-        }
-
-        return true;
-    }
-
-    public bool RemoveCommand(Guid Id)
-    {
-        var command = Commands.FirstOrDefault(x => x.Id == Id);
-
-        if (command != null)
-        {
-            Commands.Remove(command);
             return true;
         }
 
-        return false;
-    }
+        private bool IsValidCommand(char processedWord, char poppedTicket)
+        {
+            var command = Commands.FirstOrDefault(x => x.ProcessedLetter == processedWord && x.IsCommandForTicket(ticketLetter: poppedTicket));
 
-    public void ClearCommands()
-    {
-        Commands.Clear();
+            if (command != null)
+            {
+                Debug.LogError($"Já existe um comando para palavra: {processedWord} e ticket: {poppedTicket}");
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool RemoveCommand(Guid id)
+        {
+            var command = Commands.FirstOrDefault(x => x.Id == id);
+
+            if (command == null) return false;
+            
+            Commands.Remove(command);
+            return true;
+
+        }
+
+        public void ClearCommands()
+        {
+            Commands.Clear();
+        }
     }
 }

@@ -2,38 +2,34 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CommandIntegration : MonoBehaviour
+namespace AutomateIntegration
 {
-    [SerializeField]
-    private Text ProcessedWord;
-
-    [SerializeField]
-    private Text PoppedTicket;
-
-    [SerializeField]
-    private Text PushedTickets;
-
-    [SerializeField]
-    private Text OriginNode;
-
-    [SerializeField]
-    private Text DestinyNode;
-
-    public Guid Id { get; private set; }
-
-    public void Disable()
+    public class CommandIntegration : MonoBehaviour
     {
-        gameObject.SetActive(false);
-    }
+#pragma warning disable 0649
+        [SerializeField] private Text processedWord;
+        [SerializeField] private Text poppedTicket;
+        [SerializeField] private Text pushedTickets;
+        [SerializeField] private Text originNode;
+        [SerializeField] private Text destinyNode;
+#pragma warning restore 0649
+
+        public Guid Id { get; private set; }
+
+        public void Disable()
+        {
+            gameObject.SetActive(false);
+        }
     
-    public void SetValues(Guid id, char processedWord, char poppedTicket, string pushedTickets, string destinyNode, string originNode)
-    {
-        Id = id;
-        gameObject.SetActive(true);
-        PushedTickets.text = pushedTickets;
-        PoppedTicket.text = poppedTicket.ToString();
-        ProcessedWord.text = processedWord.ToString();
-        OriginNode.text = originNode;
-        DestinyNode.text = destinyNode;
+        public void SetValues(Guid id, char processedWordValue, char poppedTicketValue, string pushedTicketsValue, string destinyNodeValue, string originNodeValue)
+        {
+            Id = id;
+            gameObject.SetActive(true);
+            pushedTickets.text = pushedTicketsValue;
+            poppedTicket.text = poppedTicketValue.ToString();
+            processedWord.text = processedWordValue.ToString();
+            originNode.text = originNodeValue;
+            destinyNode.text = destinyNodeValue;
+        }
     }
 }

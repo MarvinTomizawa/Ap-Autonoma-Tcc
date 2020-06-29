@@ -1,75 +1,85 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class WordProcessor : MonoBehaviour
+namespace AutomateBase
 {
-    private Node actualNode;
-    private Stack<string> words;
-
-    void Start()
+    public class WordProcessor : MonoBehaviour
     {
-        words = new Stack<string>();
-        InnitNode();            
-    }
+        private Node _actualNode;
+        private Stack<string> _words;
 
-    private void InnitNode()
-    {
-        var nodeGameObject = GameObject.FindGameObjectWithTag("innitialNode");
+        public Node ActualNode => _actualNode;
 
-        if (nodeGameObject is null)
+        public void Start()
         {
-            Debug.LogError("Não foi possivel encontrar um objeto com a tag innitialNode na cena");
+            _words = new Stack<string>();
+            InnitNode();            
         }
 
-        actualNode = nodeGameObject.GetComponent<Node>();
-    }
-
-    public void ResetProcessor()
-    {
-        InnitNode();
-        words.Clear();
-    }
-
-    public void AddWord(string word)
-    {
-        words.Push(word);
-    }
-
-    public bool ProcessAll()
-    {
-        var wordsToProcess = new Stack<string>(words);
-
-        while (words.Count > 0)
+        public void InnitNode()
         {
-            var word = wordsToProcess.Pop();
+            var nodeGameObject = GameObject.FindGameObjectWithTag("innitialNode");
 
-            if (Process(word))
+            if (nodeGameObject is null)
             {
-                return false;
+                Debug.LogError("Não foi possivel encontrar um objeto com a tag innitialNode na cena");
+                return;
             }
 
+            _actualNode = nodeGameObject.GetComponent<Node>();
         }
 
-        return true;
-    }
-
-    public bool Process(string word)
-    {
-        bool success = true;
-
-        InnitNode();
-
-        foreach (char letter in word)
+        public void ResetProcessor()
         {
-            var processed = actualNode.ProcessLetter(letter, out actualNode);
+            InnitNode();
+            _words.Clear();
+        }
 
-            if (!processed)
+        public void AddWord(string word)
+        {
+            _words.Push(word);
+        }
+
+        public bool ProcessAll()
+        {
+            var wordsToProcess = new Stack<string>(_words);
+
+            while (_words.Count > 0)
             {
+                var word = wordsToProcess.Pop();
+
+                if (Process(word))
+                {
+                    return false;
+                }
+
+            }
+
+            return true;
+        }
+
+        public bool Process(string word)
+        {
+            var success = true;
+
+            InnitNode();
+
+            foreach (var letter in word)
+            {
+                var processed = ProcessLetter(letter);
+
+                if (processed) continue;
+            
                 success = false;
                 break;
             }
+
+            return success;
         }
 
-        return success;
+        public bool ProcessLetter(char letter)
+        {
+            return _actualNode.ProcessLetter(letter, out _actualNode);
+        }
     }
 }

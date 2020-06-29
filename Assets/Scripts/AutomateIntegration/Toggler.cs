@@ -1,67 +1,79 @@
 ﻿using UnityEngine;
 
-public class Toggler : MonoBehaviour
+namespace AutomateIntegration
 {
-    [SerializeField]
-    private GameObject[] displayedObjects;
-
-    [SerializeField]
-    private GameObject[] hiddenObjects;
-
-    [SerializeField]
-    private bool isHidden = false;
-
-
-    private void Start()
+    public class Toggler : MonoBehaviour
     {
-        ApplyDisplay();
-    }
+#pragma warning disable 0649
+        [SerializeField] private GameObject[] displayedObjects;
+        [SerializeField] private GameObject[] hiddenObjects;
+        [SerializeField] private GameObject[] alwaysHideObjects;
+        [SerializeField] private bool isHidden;
+#pragma warning restore 0649
 
-    private void ApplyDisplay()
-    {
-        if (isHidden)
+        private void Start()
         {
-            HideObjects();
-        }
-        else
-        {
-            DisplayObjects();
-        }
-    }
-
-    public void DisplayObjects()
-    {
-        isHidden = false;
-
-        foreach (var item in hiddenObjects)
-        {
-            item.SetActive(false);
+            ApplyDisplay();
         }
 
-        foreach (var item in displayedObjects)
+        private void ApplyDisplay()
         {
-            item.SetActive(true);
-        }
-    }
-
-    public void HideObjects()
-    {
-        isHidden = true;
-
-        foreach (var item in displayedObjects)
-        {
-            item.SetActive(false);
+            if (isHidden)
+            {
+                HideObjects();
+            }
+            else
+            {
+                DisplayObjects();
+            }
         }
 
-        foreach (var item in hiddenObjects)
+        public void DisplayObjects()
         {
-            item.SetActive(true);
-        }
-    }
+            isHidden = false;
 
-    public void Toggle()
-    {
-        isHidden = !isHidden;
-        ApplyDisplay();
+            foreach (var item in hiddenObjects)
+            {
+                item.SetActive(false);
+            }
+
+            foreach (var item in displayedObjects)
+            {
+                item.SetActive(true);
+            }
+
+            DisableAlwaysDisabledObjects();
+        }
+
+        public void HideObjects()
+        {
+            isHidden = true;
+
+            foreach (var item in displayedObjects)
+            {
+                item.SetActive(false);
+            }
+
+            foreach (var item in hiddenObjects)
+            {
+                item.SetActive(true);
+            }
+
+            DisableAlwaysDisabledObjects();
+        }
+
+        private void DisableAlwaysDisabledObjects()
+        {
+            foreach (var hiddenObject in alwaysHideObjects)
+            {
+                hiddenObject.SetActive(false);
+            }
+        }
+
+        public void Toggle()
+        {
+            isHidden = !isHidden;
+            ApplyDisplay();
+        }
     }
 }

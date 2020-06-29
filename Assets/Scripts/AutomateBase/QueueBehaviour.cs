@@ -1,50 +1,57 @@
-﻿using Assets.Scripts.AutomateBase;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class QueueBehaviour : MonoBehaviour
+namespace AutomateBase
 {
-    private Stack<Ticket> tickets;
-
-    void Start()
+    public class QueueBehaviour : MonoBehaviour
     {
-        ResetQueue();
-    }
+        private Stack<Ticket> _tickets;
 
-    public void ResetQueue()
-    {
-        tickets = new Stack<Ticket>();
-        tickets.Push(new Ticket('Z'));
-    }
-
-    public bool ProcessItem(Ticket processedWord, IList<Ticket> insertedWords)
-    {
-        if (tickets.Count == 0)
+        public void Start()
         {
-            Debug.LogError($"Não é possivel processar a letra {processedWord.Letter} pois a fila está vazia");
-            return false;
+            ResetQueue();
         }
 
-        var nextItemInQueue = tickets.Peek();
+        public void ResetQueue()
+        {
+            _tickets = new Stack<Ticket>();
+            _tickets.Push(new Ticket('Z'));
+        }
+
+        public bool ProcessItem(Ticket processedWord, IEnumerable<Ticket> insertedWords)
+        {
+            if (_tickets.Count == 0)
+            {
+                Debug.LogError($"Não é possivel processar a letra {processedWord.Letter} pois a fila está vazia");
+                return false;
+            }
+
+            var nextItemInQueue = _tickets.Peek();
         
-        if (!nextItemInQueue.Equals(processedWord))
-        {
-            Debug.Log($"Não é possivel processar a letra {processedWord.Letter} não é igual ao próximo a ser processado {nextItemInQueue.Letter}");
-            return false;
+            if (!nextItemInQueue.Equals(processedWord))
+            {
+                Debug.Log($"Não é possivel processar a letra {processedWord.Letter} não é igual ao próximo a ser processado {nextItemInQueue.Letter}");
+                return false;
+            }
+
+            _tickets.Pop();
+
+            foreach (var word in insertedWords)
+            {
+                _tickets.Push(word);
+            }
+
+            return true;
         }
 
-        tickets.Pop();
-
-        foreach (var word in insertedWords)
+        public Ticket GetNextTicket()
         {
-            tickets.Push(word);
+            return _tickets.Peek();
         }
 
-        return true;
-    }
-
-    public Ticket GetNextTicket()
-    {
-        return tickets.Peek();
+        public List<Ticket> GetTicketsAsList()
+        {
+            return new List<Ticket>(_tickets  );
+        }
     }
 }
