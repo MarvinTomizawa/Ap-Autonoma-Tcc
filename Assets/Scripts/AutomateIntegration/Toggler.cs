@@ -9,6 +9,7 @@ namespace AutomateIntegration
         [SerializeField] private GameObject[] hiddenObjects;
         [SerializeField] private GameObject[] alwaysHideObjects;
         [SerializeField] private bool isHidden;
+        [SerializeField] private NodeIntegration[] nodes;
 #pragma warning restore 0649
 
         private void Start()
@@ -74,6 +75,14 @@ namespace AutomateIntegration
         {
             isHidden = !isHidden;
             ApplyDisplay();
+        }
+
+        public void UnSelectNodes()
+        {
+            foreach (var node in nodes)
+            {
+                node.UnSelect();
+            }
         }
     }
 }

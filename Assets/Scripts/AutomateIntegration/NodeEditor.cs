@@ -31,7 +31,13 @@ namespace AutomateIntegration
 
         public void SelectNode(NodeIntegration nodeSelected)
         {
+            if (_nodeIntegration != null)
+            {
+                _nodeIntegration.UnSelect();    
+            }
+            
             _nodeIntegration = nodeSelected;
+            _nodeIntegration.Select();
             nodeText.text = $"Nó selecionado: {nodeSelected.GetNodeText()}";
             dropdown.options = _nodeIntegration.GetNodes().Select(x => new Dropdown.OptionData(x)).ToList();
             dropdown.value = 0;

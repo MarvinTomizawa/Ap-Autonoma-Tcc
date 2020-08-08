@@ -10,16 +10,14 @@ namespace AutomateIntegration
 {
     public class NodeIntegration : MonoBehaviour
     {
-        [SerializeField]
-        private Text nodeText = null;
-
-        [SerializeField]
-        private Node node = null;
-
-        [SerializeField]
-        private Node[] nodeTransition = new Node[0];
-
-        public int NodeIndex { get; private set; } = 0;
+#pragma warning disable 0649 
+        [SerializeField] private Text nodeText;
+        [SerializeField] private Node node;
+        [SerializeField] private Node[] nodeTransition;
+        [SerializeField] private GameObject selectedImage;
+#pragma warning restore 0649
+        
+        public int NodeIndex { get; private set; }
 
         public bool AddCommand(char processedWord, char poppedTicket, string pushedTicket, int nodeIndex)
         {
@@ -74,6 +72,16 @@ namespace AutomateIntegration
         public string GetNodeName()
         {
             return node.NodeName;
+        }
+
+        public void UnSelect()
+        {
+            selectedImage.SetActive(false);
+        }
+
+        public void Select()
+        {
+            selectedImage.SetActive(true);
         }
     }
 }

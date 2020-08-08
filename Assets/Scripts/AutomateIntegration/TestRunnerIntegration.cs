@@ -21,6 +21,8 @@ namespace AutomateIntegration
         
         private QueueBehaviour _queueBehaviour;
         private WordProcessor _wordProcessor;
+        private NodeIntegration ActualNode => _wordProcessor.ActualNode.gameObject.GetComponent<NodeIntegration>();
+        
         public void Start()
         {
             _wordProcessor = FindObjectOfType<WordProcessor>();
@@ -33,10 +35,12 @@ namespace AutomateIntegration
             if (!IsValid()) return;
             
             _wordProcessor.InnitNode();
+            ActualNode.Select();
             testRunnerWindow.SetActive(true);
             
             _queueBehaviour.ResetQueue();
-            
+            ActualNode.Select();
+
             testRunnerProcessedWord.text = processedWordField.text;
             UpdateNodeAndNextLetter();
             
@@ -97,9 +101,13 @@ namespace AutomateIntegration
                 return;
             }
 
+            ActualNode.UnSelect();
+
             var letter = wordToBeProcessed[0];
             var processed = _wordProcessor.ProcessLetter(letter);
-            
+
+            ActualNode.Select();
+
             if (!processed)
             {
                 Debug.LogError("Não foi possivel processar a palavra");
