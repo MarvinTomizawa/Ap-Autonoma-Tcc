@@ -27,6 +27,7 @@ namespace AutomateBase
             }
 
             _actualNode = nodeGameObject.GetComponent<Node>();
+            _actualNode.ResetQueue();
         }
 
         public void ResetProcessor()
@@ -60,8 +61,6 @@ namespace AutomateBase
 
         public bool Process(string word)
         {
-            var success = true;
-
             InnitNode();
 
             foreach (var letter in word)
@@ -70,11 +69,10 @@ namespace AutomateBase
 
                 if (processed) continue;
             
-                success = false;
-                break;
+                return false;
             }
 
-            return success;
+            return _actualNode.FinishedProcessing;
         }
 
         public bool ProcessLetter(char letter)

@@ -10,11 +10,18 @@ namespace AutomateBase
         [SerializeField]
         public string NodeName;
         public IList<Command> Commands { get; private set; } = new List<Command>();
+        public bool FinishedProcessing => _queueBehaviour.IsEmpty;
+
         private QueueBehaviour _queueBehaviour;
 
-        void Start()
+        void Awake()
         {
             _queueBehaviour = FindObjectOfType<QueueBehaviour>();
+        }
+
+        public void ResetQueue()
+        {
+            _queueBehaviour.ResetQueue();
         }
 
         public bool ProcessLetter(char letter, out Node nextNode)

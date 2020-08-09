@@ -6,6 +6,7 @@ namespace AutomateBase
     public class QueueBehaviour : MonoBehaviour
     {
         private Stack<Ticket> _tickets;
+        public bool IsEmpty => _tickets.Count == 0;
 
         public void Start()
         {
@@ -46,6 +47,11 @@ namespace AutomateBase
 
         public Ticket GetNextTicket()
         {
+            if (IsEmpty)
+            {
+                return null;
+            }
+
             return _tickets.Peek();
         }
 

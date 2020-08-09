@@ -1813,7 +1813,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 277662373189994542}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.63786495
+  m_Size: 0.66293126
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3202,7 +3202,9 @@ MonoBehaviour:
   - {fileID: 277662373908875188}
   hiddenObjects:
   - {fileID: 277662373873521480}
+  alwaysHideObjects: []
   isHidden: 1
+  nodes: []
 --- !u!1 &277662374174338288
 GameObject:
   m_ObjectHideFlags: 0

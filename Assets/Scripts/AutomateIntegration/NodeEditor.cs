@@ -100,8 +100,8 @@ namespace AutomateIntegration
 
         public void RemoveCommand(CommandIntegration commandIntegration)
         {
-            commandIntegration.Disable();
             _nodeIntegration.RemoveCommand(commandIntegration.Id);
+            commandIntegration.Disable();
             SetTicketsInUi();
         }
 

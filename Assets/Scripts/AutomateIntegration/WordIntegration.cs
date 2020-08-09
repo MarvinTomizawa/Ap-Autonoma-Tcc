@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class WordIntegration : MonoBehaviour
@@ -16,5 +17,17 @@ public class WordIntegration : MonoBehaviour
     public void Disable()
     {
         gameObject.SetActive(false);
+    }
+
+    public void SetIsProcessed(bool processed)
+    {
+        if (processed)
+        {
+            gameObject.GetComponent<Image>().color = Color.green;
+        }
+        else
+        {
+            gameObject.GetComponent<Image>().color = Color.red;
+        }
     }
 }

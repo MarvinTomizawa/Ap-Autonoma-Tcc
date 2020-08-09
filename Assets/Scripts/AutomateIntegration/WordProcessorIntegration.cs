@@ -36,6 +36,15 @@ namespace AutomateIntegration
             wordField.text = "";
         }
 
+        public void ProcessAllAdded()
+        {
+            for (int i = 0; i < _wordTexts.Count; i++)
+            {
+                var processed = _wordProcessor.Process(_wordTexts[i]);
+                wordFields[i].SetIsProcessed(processed);
+            }
+        }
+
         public void ProcessAll()
         {
             _wordProcessor.ProcessAll();
