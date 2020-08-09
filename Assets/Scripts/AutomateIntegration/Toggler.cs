@@ -17,18 +17,6 @@ namespace AutomateIntegration
             ApplyDisplay();
         }
 
-        private void ApplyDisplay()
-        {
-            if (isHidden)
-            {
-                HideObjects();
-            }
-            else
-            {
-                DisplayObjects();
-            }
-        }
-
         public void DisplayObjects()
         {
             isHidden = false;
@@ -63,14 +51,6 @@ namespace AutomateIntegration
             DisableAlwaysDisabledObjects();
         }
 
-        private void DisableAlwaysDisabledObjects()
-        {
-            foreach (var hiddenObject in alwaysHideObjects)
-            {
-                hiddenObject.SetActive(false);
-            }
-        }
-
         public void Toggle()
         {
             isHidden = !isHidden;
@@ -82,6 +62,26 @@ namespace AutomateIntegration
             foreach (var node in nodes)
             {
                 node.UnSelect();
+            }
+        }
+
+        private void ApplyDisplay()
+        {
+            if (isHidden)
+            {
+                HideObjects();
+            }
+            else
+            {
+                DisplayObjects();
+            }
+        }
+
+        private void DisableAlwaysDisabledObjects()
+        {
+            foreach (var hiddenObject in alwaysHideObjects)
+            {
+                hiddenObject.SetActive(false);
             }
         }
     }

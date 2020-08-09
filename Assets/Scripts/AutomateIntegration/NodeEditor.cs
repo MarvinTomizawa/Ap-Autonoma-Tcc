@@ -18,7 +18,6 @@ namespace AutomateIntegration
 #pragma warning restore 0649
 
         private const int MaxTicketSize = 13;
-
         private NodeIntegration _nodeIntegration;
 
         public void SelectNode(NodeIntegration nodeSelected)
@@ -72,13 +71,6 @@ namespace AutomateIntegration
             SetTicketsInUi();
         }
 
-        private void ClearFields()
-        {
-            processedWordField.text = "";
-            poppedTicketField.text = "";
-            pushedTicketField.text = "";
-        }
-
         public void ClearCommands()
         {
             if (IsNotValid) return;
@@ -94,6 +86,13 @@ namespace AutomateIntegration
             _nodeIntegration.RemoveCommand(commandIntegration.Id);
             commandIntegration.Disable();
             SetTicketsInUi();
+        }
+
+        private void ClearFields()
+        {
+            processedWordField.text = "";
+            poppedTicketField.text = "";
+            pushedTicketField.text = "";
         }
 
         private void SetTicketsInUi()

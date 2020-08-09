@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class WordIntegration : IntegrationFieldsValidator
 {
-#pragma warning disable 0469
+#pragma warning disable 0649
     [SerializeField] private Text textField;
-#pragma warning restore 0469
+#pragma warning restore 0649
 
     public void Enable(string text)
     {

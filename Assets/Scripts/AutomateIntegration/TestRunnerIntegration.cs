@@ -43,6 +43,44 @@ namespace AutomateIntegration
             
             ShowCurrentTickets();
         }
+        
+        public void ProcessNextLetter()
+        {
+            if (IsNotValid) return;
+            
+            var wordToBeProcessed = testRunnerProcessedWord.text;
+            
+            if (wordToBeProcessed.Length == 0)
+            {
+                Debug.LogWarning("Todas palavras ja foram processadas");
+                return;
+            }
+
+            ActualNode.UnSelect();
+
+            var letter = wordToBeProcessed[0];
+            var processed = _wordProcessor.ProcessLetter(letter);
+
+            ActualNode.Select();
+
+            if (!processed)
+            {
+                Debug.LogError("Não foi possivel processar a palavra");
+                return;
+            }
+            
+            testRunnerProcessedWord.text = wordToBeProcessed.Length >= 1 ? wordToBeProcessed.Substring(1) : "";
+            UpdateNodeAndNextLetter();
+            ShowCurrentTickets();
+        }
+
+        public void StopTestRunner()
+        {
+            if(IsNotValid) return;
+            
+            _queueBehaviour.ResetQueue();
+            testRunnerWindow.SetActive(false);
+        }
 
         private void UpdateNodeAndNextLetter()
         {
@@ -81,44 +119,6 @@ namespace AutomateIntegration
             {
                 ticketFields[i].Enable(tickets[i].Letter);
             }
-        }
-
-        public void ProcessNextLetter()
-        {
-            if (IsNotValid) return;
-            
-            var wordToBeProcessed = testRunnerProcessedWord.text;
-            
-            if (wordToBeProcessed.Length == 0)
-            {
-                Debug.LogWarning("Todas palavras ja foram processadas");
-                return;
-            }
-
-            ActualNode.UnSelect();
-
-            var letter = wordToBeProcessed[0];
-            var processed = _wordProcessor.ProcessLetter(letter);
-
-            ActualNode.Select();
-
-            if (!processed)
-            {
-                Debug.LogError("Não foi possivel processar a palavra");
-                return;
-            }
-            
-            testRunnerProcessedWord.text = wordToBeProcessed.Length >= 1 ? wordToBeProcessed.Substring(1) : "";
-            UpdateNodeAndNextLetter();
-            ShowCurrentTickets();
-        }
-
-        public void StopTestRunner()
-        {
-            if(IsNotValid) return;
-            
-            _queueBehaviour.ResetQueue();
-            testRunnerWindow.SetActive(false);
         }
         
         protected override List<(object, string)> FieldsToBeValidated()
