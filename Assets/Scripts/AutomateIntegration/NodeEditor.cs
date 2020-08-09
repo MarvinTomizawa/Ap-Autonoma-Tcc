@@ -1,29 +1,21 @@
-﻿using System.Linq;
-using Exception;
+﻿using Assets.Scripts.Exception;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace AutomateIntegration
 {
-    public class NodeEditor : MonoBehaviour
+    public class NodeEditor : IntegrationFieldsValidator
     {
-        [SerializeField]
-        private InputField processedWordField = null;
-
-        [SerializeField]
-        private InputField poppedTicketField = null;
-
-        [SerializeField]
-        private InputField pushedTicketField = null;
-
-        [SerializeField]
-        private Dropdown dropdown = null;
-
-        [SerializeField]
-        private Text nodeText = null;
-
-        [SerializeField]
-        private CommandIntegration[] commandFields = new CommandIntegration[MaxTicketSize];
+#pragma warning disable 0649
+        [SerializeField] private InputField processedWordField;
+        [SerializeField] private InputField poppedTicketField;
+        [SerializeField] private InputField pushedTicketField;
+        [SerializeField] private Dropdown dropdown;
+        [SerializeField] private Text nodeText;
+        [SerializeField] private CommandIntegration[] commandFields;
+#pragma warning restore 0649
 
         private const int MaxTicketSize = 13;
 
@@ -31,6 +23,8 @@ namespace AutomateIntegration
 
         public void SelectNode(NodeIntegration nodeSelected)
         {
+            if (IsNotValid) return;
+
             if (_nodeIntegration != null)
             {
                 _nodeIntegration.UnSelect();    
@@ -45,15 +39,10 @@ namespace AutomateIntegration
             SetTicketsInUi();
         }
 
-        void Start()
-        {
-            ValidateFields();
-        }
-
         public void AddCommand()
         {
-            if (!NodeIsValid()) return;
-            
+            if (IsNotValid) return;
+
             if (_nodeIntegration.NodeIndex + 1 > MaxTicketSize)
             {
                 Debug.LogError("Tamanho máximo de tickets preenchido.");
@@ -92,30 +81,25 @@ namespace AutomateIntegration
 
         public void ClearCommands()
         {
-            if (!NodeIsValid()) return;
-            
+            if (IsNotValid) return;
+
             _nodeIntegration.ClearCommands();
             ClearCommandFields();
         }
 
         public void RemoveCommand(CommandIntegration commandIntegration)
         {
+            if (IsNotValid) return;
+
             _nodeIntegration.RemoveCommand(commandIntegration.Id);
             commandIntegration.Disable();
             SetTicketsInUi();
         }
 
-        private bool NodeIsValid()
-        {
-            if (!(_nodeIntegration is null)) return true;
-            
-            Debug.LogError(BaseException.FieldNotSetted(nameof(_nodeIntegration), gameObject.name));
-            return false;
-
-        }
-
         private void SetTicketsInUi()
         {
+            if (IsNotValid) return;
+
             ClearCommandFields();
 
             var commands = _nodeIntegration.GetCommands();
@@ -136,27 +120,12 @@ namespace AutomateIntegration
             }
         }
 
-        private void ValidateFields()
-        {
-            if (processedWordField is null)
-            {
-                Debug.LogError(BaseException.FieldNotSetted(nameof(processedWordField), gameObject.name));
-            }
-
-            if (poppedTicketField is null)
-            {
-                Debug.LogError(BaseException.FieldNotSetted(nameof(poppedTicketField), gameObject.name));
-            }
-
-            if (pushedTicketField is null)
-            {
-                Debug.LogError(BaseException.FieldNotSetted(nameof(pushedTicketField), gameObject.name));
-            }
-
-            if (nodeText is null)
-            {
-                Debug.LogError(BaseException.FieldNotSetted(nameof(nodeText), gameObject.name));
-            }
-        }
+        protected override List<(object, string)> FieldsToBeValidated()
+            => new List<(object, string)> { 
+                (processedWordField, nameof(processedWordField)),
+                (poppedTicketField, nameof(poppedTicketField)),
+                (pushedTicketField, nameof(pushedTicketField)),
+                (nodeText, nameof(nodeText))
+            };
     }
 }

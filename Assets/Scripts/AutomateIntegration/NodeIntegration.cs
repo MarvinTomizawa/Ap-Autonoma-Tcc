@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Assets.Scripts.Exception;
+using AutomateBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutomateBase;
-using Exception;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace AutomateIntegration
 {
-    public class NodeIntegration : MonoBehaviour
+    public class NodeIntegration : IntegrationFieldsValidator
     {
 #pragma warning disable 0649 
         [SerializeField] private Text nodeText;
@@ -19,22 +19,34 @@ namespace AutomateIntegration
         
         public int NodeIndex { get; private set; }
 
+        public IEnumerable<Command> GetCommands()
+            => node.Commands;
+
+        public IEnumerable<string> GetNodes()
+            => nodeTransition.Select(x => x.NodeName).ToList();
+
+        public string GetNodeName()
+            => node.NodeName;
+
         public bool AddCommand(char processedWord, char poppedTicket, string pushedTicket, int nodeIndex)
         {
+            if (IsNotValid) return false;
+
             var selectedDestinyNode = nodeTransition[nodeIndex];
 
-            var success = node.AddCommand(processedWord, poppedTicket, pushedTicket, selectedDestinyNode, NodeIndex);
-        
-            if (success)
+            if (node.AddCommand(processedWord, poppedTicket, pushedTicket, selectedDestinyNode, NodeIndex))
             {
                 NodeIndex++;
+                return true;
             }
 
-            return success;
+            return false;
         }
 
         public void RemoveCommand(Guid guid)
         {
+            if (IsNotValid) return;
+
             if(node.RemoveCommand(guid))
             {
                 NodeIndex--;
@@ -43,35 +55,17 @@ namespace AutomateIntegration
 
         public string GetNodeText()
         {
-            if (!(nodeText is null))
-            {
-                return nodeText.text;
-            }
+            if (IsNotValid) return "";
 
-            Debug.LogError(BaseException.FieldNotSetted(nameof(nodeText), gameObject.name));
-            return "";
-
+            return nodeText.text;
         }
 
         public void ClearCommands()
         {
+            if (IsNotValid) return;
+
             node.ClearCommands();
             NodeIndex = 0;
-        }
-
-        public IEnumerable<Command> GetCommands()
-        {
-            return node.Commands;
-        }
-
-        public IEnumerable<string> GetNodes()
-        {
-            return nodeTransition.Select(x => x.NodeName).ToList();
-        }
-
-        public string GetNodeName()
-        {
-            return node.NodeName;
         }
 
         public void UnSelect()
@@ -83,5 +77,12 @@ namespace AutomateIntegration
         {
             selectedImage.SetActive(true);
         }
+
+        protected override List<(object, string)> FieldsToBeValidated()
+            => new List<(object, string)> { 
+                (nodeText, nameof(nodeText)),
+                (node, nameof(node)),
+                (selectedImage, nameof(selectedImage))
+            };
     }
 }

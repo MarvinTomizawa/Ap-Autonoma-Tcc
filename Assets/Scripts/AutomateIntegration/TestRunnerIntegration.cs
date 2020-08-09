@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Assets.Scripts.Exception;
 using AutomateBase;
-using Exception;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace AutomateIntegration
 {
-    public class TestRunnerIntegration : MonoBehaviour
+    public class TestRunnerIntegration : IntegrationFieldsValidator
     {
 #pragma warning disable 0649
         [SerializeField] private InputField actualNodeField;
@@ -27,12 +27,11 @@ namespace AutomateIntegration
         {
             _wordProcessor = FindObjectOfType<WordProcessor>();
             _queueBehaviour = FindObjectOfType<QueueBehaviour>();
-            IsValid();
         }
 
         public void StartTestRunner()
         {
-            if (!IsValid() || string.IsNullOrEmpty(processedWordField.text)) return;
+            if (IsNotValid || string.IsNullOrEmpty(processedWordField.text)) return;
             
             _wordProcessor.InnitNode();
             ActualNode.Select();
@@ -86,10 +85,7 @@ namespace AutomateIntegration
 
         public void ProcessNextLetter()
         {
-            if (!IsValid())
-            {
-                return;
-            }
+            if (IsNotValid) return;
             
             var wordToBeProcessed = testRunnerProcessedWord.text;
             
@@ -119,63 +115,21 @@ namespace AutomateIntegration
 
         public void StopTestRunner()
         {
-            if(!IsValid()) return;
+            if(IsNotValid) return;
             
             _queueBehaviour.ResetQueue();
             testRunnerWindow.SetActive(false);
         }
         
-        private bool IsValid()
-        {
-            if (processedWordField is null)
-            {
-                Debug.LogError(BaseException.FieldNotSetted(nameof(processedWordField), gameObject.name));
-                return false;
-            }
-            
-            if (actualNodeField is null)
-            {
-                Debug.LogError(BaseException.FieldNotSetted(nameof(processedWordField), gameObject.name));
-                return false;
-            }
-            
-            if (nextWordField is null)
-            {
-                Debug.LogError(BaseException.FieldNotSetted(nameof(processedWordField), gameObject.name));
-                return false;
-            }
-
-            if (_wordProcessor is null)
-            {
-                Debug.LogError(BaseException.FieldNotSetted(nameof(_wordProcessor), gameObject.name));
-                return false;
-            }
-            
-            if (testRunnerWindow is null)
-            {
-                Debug.LogError(BaseException.FieldNotSetted(nameof(testRunnerWindow), gameObject.name));
-                return false;
-            }
-
-            if (testRunnerProcessedWord is null)
-            {
-                Debug.LogError(BaseException.FieldNotSetted(nameof(testRunnerProcessedWord), gameObject.name));
-                return false;
-            }
-            
-            if (_queueBehaviour is null)
-            {
-                Debug.LogError(BaseException.FieldNotInScene(nameof(_queueBehaviour)));   
-                return false;
-            }
-
-            if (ticketFields.Count == 0)
-            {
-                Debug.LogError(BaseException.FieldNotSetted(nameof(ticketFields), gameObject.name));
-                return false;
-            }
-
-            return true;
-        }
+        protected override List<(object, string)> FieldsToBeValidated()
+            => new List<(object, string)> {
+                (processedWordField, nameof(processedWordField)),
+                (actualNodeField, nameof(actualNodeField)),
+                (nextWordField, nameof(nextWordField)),
+                (testRunnerWindow, nameof(testRunnerWindow)),
+                (testRunnerProcessedWord, nameof(testRunnerProcessedWord)),
+                (_wordProcessor, nameof(_wordProcessor)),
+                (_queueBehaviour, nameof(_queueBehaviour))
+            };
     }
 }

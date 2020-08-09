@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Assets.Scripts.Exception;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WordIntegration : MonoBehaviour
+public class WordIntegration : IntegrationFieldsValidator
 {
 #pragma warning disable 0469
     [SerializeField] private Text textField;
@@ -10,6 +11,8 @@ public class WordIntegration : MonoBehaviour
 
     public void Enable(string text)
     {
+        if (IsNotValid) return;
+
         gameObject.SetActive(true);
         textField.text = text;
     }
@@ -21,6 +24,8 @@ public class WordIntegration : MonoBehaviour
 
     public void SetIsProcessed(bool processed)
     {
+        if (IsNotValid) return;
+
         if (processed)
         {
             gameObject.GetComponent<Image>().color = Color.green;
@@ -30,4 +35,7 @@ public class WordIntegration : MonoBehaviour
             gameObject.GetComponent<Image>().color = Color.red;
         }
     }
+
+    protected override List<(object, string)> FieldsToBeValidated()
+        => new List<(object, string)> { (textField, nameof(textField)) };
 }

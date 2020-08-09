@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Assets.Scripts.Exception;
 using AutomateBase;
 using Exception;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace AutomateIntegration
 {
-    public class WordProcessorIntegration : MonoBehaviour
+    public class WordProcessorIntegration : IntegrationFieldsValidator
     {
 #pragma warning disable 0649
         [SerializeField] private InputField wordField;
@@ -20,11 +20,12 @@ namespace AutomateIntegration
         public void Start()
         {
             _wordProcessor = FindObjectOfType<WordProcessor>();
-            ValidateFields();
         }
 
         public void AddWord()
         {
+            if (IsNotValid) return;
+
             var word = wordField.text;
             if (_wordTexts.Count < wordFields.Count && !string.IsNullOrEmpty(word))
             {
@@ -38,6 +39,8 @@ namespace AutomateIntegration
 
         public void ProcessAllAdded()
         {
+            if (IsNotValid) return;
+
             for (int i = 0; i < _wordTexts.Count; i++)
             {
                 var processed = _wordProcessor.Process(_wordTexts[i]);
@@ -47,11 +50,15 @@ namespace AutomateIntegration
 
         public void ProcessAll()
         {
+            if (IsNotValid) return;
+
             _wordProcessor.ProcessAll();
         }
 
         public void ResetProcessor()
         {
+            if (IsNotValid) return;
+
             _wordProcessor.ResetProcessor();
             AtualizeWords();
         }
@@ -69,18 +76,10 @@ namespace AutomateIntegration
             }
         }
 
-        private void ValidateFields()
-        {
-            if (_wordProcessor is null)
-            {
-                Debug.LogError(BaseException.FieldNotInScene(nameof(_wordProcessor))); 
-            }
-
-            if (wordField is null)
-            {
-                Debug.LogError(BaseException.FieldNotSetted(nameof(wordField), gameObject.name)); 
-            }
-        }
-
+        protected override List<(object, string)> FieldsToBeValidated()
+            => new List<(object, string)> { 
+                (_wordProcessor, nameof(_wordProcessor)),
+                (wordField, nameof(wordField)) 
+            };
     }
 }

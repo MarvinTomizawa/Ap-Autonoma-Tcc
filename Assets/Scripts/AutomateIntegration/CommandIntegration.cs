@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Assets.Scripts.Exception;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace AutomateIntegration
 {
-    public class CommandIntegration : MonoBehaviour
+    public class CommandIntegration : IntegrationFieldsValidator
     {
 #pragma warning disable 0649
         [SerializeField] private Text processedWord;
@@ -20,9 +22,11 @@ namespace AutomateIntegration
         {
             gameObject.SetActive(false);
         }
-    
+
         public void SetValues(Guid id, char processedWordValue, char poppedTicketValue, string pushedTicketsValue, string destinyNodeValue, string originNodeValue)
         {
+            if (IsNotValid) return;
+
             Id = id;
             gameObject.SetActive(true);
             pushedTickets.text = pushedTicketsValue;
@@ -31,5 +35,14 @@ namespace AutomateIntegration
             originNode.text = originNodeValue;
             destinyNode.text = destinyNodeValue;
         }
+
+        protected override List<(object, string)> FieldsToBeValidated()
+            => new List<(object, string)> {
+                (processedWord, nameof(processedWord)),
+                (poppedTicket, nameof(poppedTicket)),
+                (pushedTickets, nameof(pushedTickets)),
+                (originNode, nameof(originNode)),
+                (destinyNode, nameof(destinyNode))
+            };
     }
 }
