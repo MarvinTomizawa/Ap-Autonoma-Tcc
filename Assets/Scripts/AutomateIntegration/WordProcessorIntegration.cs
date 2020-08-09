@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AutomateBase;
 using Exception;
 using UnityEngine;
@@ -10,40 +11,29 @@ namespace AutomateIntegration
     {
 #pragma warning disable 0649
         [SerializeField] private InputField wordField;
-        [SerializeField] private IList<GameObject> wordFields = new List<GameObject>();
+        [SerializeField] private List<WordIntegration> wordFields = new List<WordIntegration>();
 #pragma warning restore 0649
 
-        private readonly IList<Text> _wordTexts = new List<Text>();
+        private readonly IList<string> _wordTexts = new List<string>();
         private WordProcessor _wordProcessor;
 
         public void Start()
         {
             _wordProcessor = FindObjectOfType<WordProcessor>();
-            foreach (var field in _wordTexts)
-            {
-                var textField = field.GetComponent<Text>();
-                if(textField is null)
-                { 
-                    Debug.Log($"Campo de texto não está atribuido para o objeto {field.name}");
-                    continue;
-                }
-                
-                _wordTexts.Add(textField);      
-            }   
-            
             ValidateFields();
         }
 
         public void AddWord()
         {
             var word = wordField.text;
-            _wordProcessor.AddWord(word);
-        }
+            if (_wordTexts.Count < wordFields.Count && !string.IsNullOrEmpty(word))
+            {
+                _wordTexts.Add(word);
+                _wordProcessor.AddWord(word);
+                AtualizeWords();
+            }
 
-        public void TestCurrentWord()
-        {
-            var word = wordField.text;
-            _wordProcessor.Process(word);
+            wordField.text = "";
         }
 
         public void ProcessAll()
@@ -54,15 +44,24 @@ namespace AutomateIntegration
         public void ResetProcessor()
         {
             _wordProcessor.ResetProcessor();
+            AtualizeWords();
+        }
+
+        private void AtualizeWords()
+        {
+            foreach (var wordField in wordFields)
+            {
+                wordField.Disable();
+            }
+
+            for (int i = 0; i < _wordTexts.Count; i++)
+            {
+                wordFields[i].Enable(_wordTexts[i]);
+            }
         }
 
         private void ValidateFields()
         {
-            if (wordFields.Count != _wordTexts.Count)
-            {
-                Debug.LogError(BaseException.FieldNotInScene(nameof(_wordProcessor)));
-            }
-            
             if (_wordProcessor is null)
             {
                 Debug.LogError(BaseException.FieldNotInScene(nameof(_wordProcessor))); 

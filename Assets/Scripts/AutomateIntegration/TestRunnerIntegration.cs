@@ -32,14 +32,12 @@ namespace AutomateIntegration
 
         public void StartTestRunner()
         {
-            if (!IsValid()) return;
+            if (!IsValid() || string.IsNullOrEmpty(processedWordField.text)) return;
             
             _wordProcessor.InnitNode();
             ActualNode.Select();
             testRunnerWindow.SetActive(true);
-            
             _queueBehaviour.ResetQueue();
-            ActualNode.Select();
 
             testRunnerProcessedWord.text = processedWordField.text;
             UpdateNodeAndNextLetter();
