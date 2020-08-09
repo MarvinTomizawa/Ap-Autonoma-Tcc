@@ -8,6 +8,8 @@ namespace AutomateBase
         private Stack<Ticket> _tickets;
         public bool IsEmpty => _tickets.Count == 0;
 
+        public const int LIMIT = 13;
+
         public void Start()
         {
             ResetQueue();
@@ -39,6 +41,10 @@ namespace AutomateBase
 
             foreach (var word in insertedWords)
             {
+                if (_tickets.Count + 1 > LIMIT)
+                {
+                    return false;
+                }
                 _tickets.Push(word);
             }
 
