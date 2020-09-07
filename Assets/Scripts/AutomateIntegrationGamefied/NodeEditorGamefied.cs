@@ -1,20 +1,21 @@
-﻿using Assets.Scripts.AutomateIntegrationGamefied;
-using Assets.Scripts.Exception;
+﻿using Assets.Scripts.Exception;
+using AutomateIntegration;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AutomateIntegration
+namespace Assets.Scripts.AutomateIntegrationGamefied
 {
-    public class NodeEditor : IntegrationFieldsValidator
+    public class NodeEditorGamefied : IntegrationFieldsValidator
     {
+
 #pragma warning disable 0649
-        [SerializeField] private InputField processedWordField;
-        [SerializeField] private InputField poppedTicketField;
-        [SerializeField] private InputField pushedTicketField;
-        [SerializeField] private Dropdown dropdown;
         [SerializeField] private Text nodeText;
+        [SerializeField] private Dropdown industryField;
+        [SerializeField] private Dropdown productField;
+        [SerializeField] private Dropdown poppedTicketField;
+        [SerializeField] private TicketGameIntegration[] pushedTicketsFields;
         [SerializeField] private CommandIntegration[] commandFields;
 #pragma warning restore 0649
 
@@ -24,7 +25,7 @@ namespace AutomateIntegration
 
         private void Awake()
         {
-            industrySpriteMap = FindObjectOfType<IndustrySpritesMaps>();
+            industrySpriteMap = FindObjectOfType<IndustrySpritesMaps>();    
         }
 
         public void SelectNode(NodeIntegration nodeSelected)
@@ -33,14 +34,14 @@ namespace AutomateIntegration
 
             if (_nodeIntegration != null)
             {
-                _nodeIntegration.UnSelect();    
+                _nodeIntegration.UnSelect();
             }
-            
+
             _nodeIntegration = nodeSelected;
             _nodeIntegration.Select();
             nodeText.text = $"Nó selecionado: {nodeSelected.GetNodeText()}";
-            dropdown.options = _nodeIntegration.GetNodes().Select(x => new Dropdown.OptionData(x, industrySpriteMap.Map[x])).ToList();
-            dropdown.value = 0;
+            industryField.options = _nodeIntegration.GetNodes().Select(x => new Dropdown.OptionData(x, industrySpriteMap.Map[x])).ToList();
+            industryField.value = 0;
             ClearFields();
             SetTicketsInUi();
         }
@@ -55,25 +56,19 @@ namespace AutomateIntegration
                 return;
             }
 
-            if (processedWordField.text.Length == 0)
-            {
-                Debug.LogError("Palavra processada obrigatório.");
-                return;
-            }
+            var dropdownValue = industryField.value;
+            var processedWord = productField.value.ToString()[0];
+            var poppedTicket = poppedTicketField.value.ToString()[0];
 
-            if (poppedTicketField.text.Length == 0)
-            {
-                Debug.LogError("Ticket retirado é obrigatório.");
-                return;
-            }
+            string pushedTicket = "";
 
-            var dropdownValue = dropdown.value;
-            var processedWord = processedWordField.text[0];
-            var poppedTicket = poppedTicketField.text[0];
-            var pushedTicket = pushedTicketField.text;
+            foreach (var pushedTicketField in pushedTicketsFields.Where(x => x.IsEnabled))
+            {
+                pushedTicket += pushedTicketField.Value;
+            }
 
             if (!_nodeIntegration.AddCommand(processedWord, poppedTicket, pushedTicket, dropdownValue)) return;
-            
+
             ClearFields();
             SetTicketsInUi();
         }
@@ -97,9 +92,10 @@ namespace AutomateIntegration
 
         private void ClearFields()
         {
-            processedWordField.text = "";
-            poppedTicketField.text = "";
-            pushedTicketField.text = "";
+            foreach (var ticket in pushedTicketsFields)
+            {
+                ticket.Disable();
+            }
         }
 
         private void SetTicketsInUi()
@@ -127,10 +123,13 @@ namespace AutomateIntegration
         }
 
         protected override List<(object, string)> FieldsToBeValidated()
-            => new List<(object, string)> { 
-                (processedWordField, nameof(processedWordField)),
+        => new List<(object, string)> {
+                (nodeText, nameof(nodeText)),
                 (poppedTicketField, nameof(poppedTicketField)),
-                (pushedTicketField, nameof(pushedTicketField)),
+                (industryField, nameof(industryField)),
+                (productField, nameof(productField)),
+                (pushedTicketsFields, nameof(pushedTicketsFields)),
+                (commandFields, nameof(commandFields)),
                 (nodeText, nameof(nodeText))
             };
     }

@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.Exception;
 using AutomateBase;
-using Exception;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
