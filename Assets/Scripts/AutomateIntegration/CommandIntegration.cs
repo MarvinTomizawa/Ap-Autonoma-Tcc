@@ -9,12 +9,23 @@ namespace AutomateIntegration
     public class CommandIntegration : IntegrationFieldsValidator
     {
 #pragma warning disable 0649
-        [SerializeField] private Text processedWord;
-        [SerializeField] private Text poppedTicket;
-        [SerializeField] private Text pushedTickets;
-        [SerializeField] private Text originNode;
-        [SerializeField] private Text destinyNode;
+        [SerializeField] private Dropdown processedWord;
+        [SerializeField] private Dropdown poppedTicket;
+        [SerializeField] private GameObject[] pushedTicketArray;
+        [SerializeField] private Dropdown pushedTicket1;
+        [SerializeField] private Dropdown pushedTicket2;
+        [SerializeField] private Dropdown pushedTicket3;
+        [SerializeField] private Dropdown pushedTicket4;
+        [SerializeField] private Dropdown originNode;
+        [SerializeField] private Dropdown destinyNode;
 #pragma warning restore 0649
+
+        private Dictionary<string, int> industryKeyMap = new Dictionary<string, int>
+        {
+            {"A", 0},
+            {"B", 1},
+            {"C", 2}
+        };
 
         public Guid Id { get; private set; }
 
@@ -29,18 +40,47 @@ namespace AutomateIntegration
 
             Id = id;
             gameObject.SetActive(true);
-            pushedTickets.text = pushedTicketsValue;
-            poppedTicket.text = poppedTicketValue.ToString();
-            processedWord.text = processedWordValue.ToString();
-            originNode.text = originNodeValue;
-            destinyNode.text = destinyNodeValue;
+            SetPushedTickets(pushedTicketsValue);
+            poppedTicket.value = int.Parse(poppedTicketValue.ToString());
+            processedWord.value = int.Parse(processedWordValue.ToString());
+            originNode.value = industryKeyMap[originNodeValue];
+            destinyNode.value = industryKeyMap[destinyNodeValue];
+        }
+
+        private void SetPushedTickets(string pushedTicketsValue)
+        {
+            var lenght = pushedTicketsValue.Length;
+
+            foreach (var item in pushedTicketArray)
+            {
+                item.SetActive(false);
+            }
+
+            if (lenght == 0) return;
+            pushedTicketArray[0].SetActive(true);
+            pushedTicket1.value = int.Parse(pushedTicketsValue[0].ToString());
+
+            if (lenght == 1) return;
+            pushedTicketArray[1].SetActive(true);
+            pushedTicket2.value = int.Parse(pushedTicketsValue[1].ToString());
+
+            if (lenght == 2) return;
+            pushedTicketArray[2].SetActive(true);
+            pushedTicket3.value = int.Parse(pushedTicketsValue[2].ToString());
+
+            if (lenght == 3) return;
+            pushedTicketArray[3].SetActive(true);
+            pushedTicket4.value = int.Parse(pushedTicketsValue[3].ToString());
         }
 
         protected override List<(object, string)> FieldsToBeValidated()
             => new List<(object, string)> {
                 (processedWord, nameof(processedWord)),
                 (poppedTicket, nameof(poppedTicket)),
-                (pushedTickets, nameof(pushedTickets)),
+                (pushedTicket1, nameof(pushedTicket1)),
+                (pushedTicket2, nameof(pushedTicket2)),
+                (pushedTicket3, nameof(pushedTicket3)),
+                (pushedTicket4, nameof(pushedTicket4)),
                 (originNode, nameof(originNode)),
                 (destinyNode, nameof(destinyNode))
             };

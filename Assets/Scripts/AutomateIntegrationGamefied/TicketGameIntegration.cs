@@ -21,6 +21,12 @@ namespace Assets.Scripts.AutomateIntegrationGamefied
             AtualizeUi();
         }
 
+        public void Reset()
+        {
+            valueField.value = 0;
+            Disable();
+        }
+
         public void Enable()
         {
             IsEnabled = true;

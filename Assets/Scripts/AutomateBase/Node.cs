@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Exception;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -31,7 +32,7 @@ namespace AutomateBase
 
             if(ticket is null)
             {
-                Debug.Log("A fila está vazia");
+                Debug.Log(ExceptionsMessages.FilaVazia);
                 return false;
             }
 
@@ -39,7 +40,7 @@ namespace AutomateBase
 
             if (command is null)
             {
-                Debug.Log($"Não possui comando para a letra {letter} e ticket {ticket.Letter}.");
+                Debug.Log(ExceptionsMessages.SemComandoParaBrinquedoETicket(letter, ticket.Letter));
                 return false;
             }
 
@@ -48,29 +49,20 @@ namespace AutomateBase
             return _queueBehaviour.ProcessItem(command.PoppedTicket, command.PushedTickets);
         }
 
-        public bool AddCommand(char processedWord, char poppedTicket, string pushedTicket, Node node,  int index)
+        public void AddCommand(char processedWord, char poppedTicket, string pushedTicket, Node node,  int index)
         {
-            if (!IsValidCommand(processedWord, poppedTicket))
-            {
-                return false;
-            }
-
+            IsValidCommand(processedWord, poppedTicket);
             Commands.Add(new Command(processedWord, poppedTicket, pushedTicket, node, index));
-
-            return true;
         }
 
-        private bool IsValidCommand(char processedWord, char poppedTicket)
+        private void IsValidCommand(char processedWord, char poppedTicket)
         {
             var command = Commands.FirstOrDefault(x => x.ProcessedLetter == processedWord && x.IsCommandForTicket(ticketLetter: poppedTicket));
 
             if (command != null)
             {
-                Debug.LogError($"Já existe um comando para palavra: {processedWord} e ticket: {poppedTicket}");
-                return false;
+                throw new System.Exception(ExceptionsMessages.TicketEBrinquedoJaExistente);
             }
-
-            return true;
         }
 
         public bool RemoveCommand(Guid id)

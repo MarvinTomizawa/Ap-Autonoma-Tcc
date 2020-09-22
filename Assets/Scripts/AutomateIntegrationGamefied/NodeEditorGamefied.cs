@@ -17,15 +17,19 @@ namespace Assets.Scripts.AutomateIntegrationGamefied
         [SerializeField] private Dropdown poppedTicketField;
         [SerializeField] private TicketGameIntegration[] pushedTicketsFields;
         [SerializeField] private CommandIntegration[] commandFields;
+        [SerializeField] private GameObject addCommandScreen;
+        [SerializeField] private ErrorScreen errorScreen;
 #pragma warning restore 0649
 
         private IndustrySpritesMaps industrySpriteMap;
+        private ProductSpriteMap productSpriteMap;
         private const int MaxTicketSize = 13;
         private NodeIntegration _nodeIntegration;
 
         private void Awake()
         {
-            industrySpriteMap = FindObjectOfType<IndustrySpritesMaps>();    
+            industrySpriteMap = FindObjectOfType<IndustrySpritesMaps>();
+            productSpriteMap = FindObjectOfType<ProductSpriteMap>();    
         }
 
         public void SelectNode(NodeIntegration nodeSelected)
@@ -41,7 +45,10 @@ namespace Assets.Scripts.AutomateIntegrationGamefied
             _nodeIntegration.Select();
             nodeText.text = $"Nó selecionado: {nodeSelected.GetNodeText()}";
             industryField.options = _nodeIntegration.GetNodes().Select(x => new Dropdown.OptionData(x, industrySpriteMap.Map[x])).ToList();
+            productField.options = _nodeIntegration.GetProducts().Select(x => new Dropdown.OptionData(productSpriteMap.Map[x])).ToList();
             industryField.value = 0;
+            productField.value = 0;
+
             ClearFields();
             SetTicketsInUi();
         }
@@ -52,7 +59,7 @@ namespace Assets.Scripts.AutomateIntegrationGamefied
 
             if (_nodeIntegration.NodeIndex + 1 > MaxTicketSize)
             {
-                Debug.LogError("Tamanho máximo de tickets preenchido.");
+                errorScreen.ShowError(ExceptionsMessages.TamanhoMaximoPreenchido);
                 return;
             }
 
@@ -67,10 +74,18 @@ namespace Assets.Scripts.AutomateIntegrationGamefied
                 pushedTicket += pushedTicketField.Value;
             }
 
-            if (!_nodeIntegration.AddCommand(processedWord, poppedTicket, pushedTicket, dropdownValue)) return;
+            try
+            {
+                _nodeIntegration.AddCommand(processedWord, poppedTicket, pushedTicket, dropdownValue);
+            }
+            catch (System.Exception exception){
+                errorScreen.ShowError(exception.Message);
+                return;
+            } 
 
-            ClearFields();
+            ResetTicketFields();
             SetTicketsInUi();
+            addCommandScreen.SetActive(false);
         }
 
         public void ClearCommands()
@@ -95,6 +110,15 @@ namespace Assets.Scripts.AutomateIntegrationGamefied
             foreach (var ticket in pushedTicketsFields)
             {
                 ticket.Disable();
+            }
+        }
+
+        private void ResetTicketFields()
+        {
+            poppedTicketField.value = 0;
+            foreach (var ticket in pushedTicketsFields)
+            {
+                ticket.Reset();
             }
         }
 
@@ -127,9 +151,11 @@ namespace Assets.Scripts.AutomateIntegrationGamefied
                 (nodeText, nameof(nodeText)),
                 (poppedTicketField, nameof(poppedTicketField)),
                 (industryField, nameof(industryField)),
+                (errorScreen, nameof(errorScreen)),
                 (productField, nameof(productField)),
                 (pushedTicketsFields, nameof(pushedTicketsFields)),
                 (commandFields, nameof(commandFields)),
+                (addCommandScreen, nameof(addCommandScreen)),
                 (nodeText, nameof(nodeText))
             };
     }

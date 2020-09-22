@@ -15,6 +15,7 @@ namespace AutomateIntegration
         [SerializeField] private Node node;
         [SerializeField] private Node[] nodeTransition;
         [SerializeField] private GameObject selectedImage;
+        [SerializeField] private int[] productValues;
 #pragma warning restore 0649
         
         public int NodeIndex { get; private set; }
@@ -28,19 +29,18 @@ namespace AutomateIntegration
         public string GetNodeName()
             => node.NodeName;
 
+        public IEnumerable<int> GetProducts()
+            => productValues;
+
         public bool AddCommand(char processedWord, char poppedTicket, string pushedTicket, int nodeIndex)
         {
             if (IsNotValid) return false;
 
             var selectedDestinyNode = nodeTransition[nodeIndex];
 
-            if (node.AddCommand(processedWord, poppedTicket, pushedTicket, selectedDestinyNode, NodeIndex))
-            {
-                NodeIndex++;
-                return true;
-            }
-
-            return false;
+            node.AddCommand(processedWord, poppedTicket, pushedTicket, selectedDestinyNode, NodeIndex);
+            NodeIndex++;
+            return true;
         }
 
         public void RemoveCommand(Guid guid)
