@@ -20,7 +20,7 @@ namespace AutomateIntegration
         [SerializeField] private Dropdown destinyNode;
 #pragma warning restore 0649
 
-        private Dictionary<string, int> industryKeyMap = new Dictionary<string, int>
+        private readonly Dictionary<string, int> industryKeyMap = new Dictionary<string, int>
         {
             {"A", 0},
             {"B", 1},

@@ -9,8 +9,8 @@ namespace AutomateIntegration
     public class WordProcessorIntegration : IntegrationFieldsValidator
     {
 #pragma warning disable 0649
-        [SerializeField] private InputField wordField;
-        [SerializeField] private List<WordIntegration> wordFields = new List<WordIntegration>();
+        [SerializeField] private InputField wordInput;
+        [SerializeField] private List<WordIntegration> wordsToBeTested = new List<WordIntegration>();
 #pragma warning restore 0649
 
         private readonly IList<string> _wordTexts = new List<string>();
@@ -25,15 +25,15 @@ namespace AutomateIntegration
         {
             if (IsNotValid) return;
 
-            var word = wordField.text;
-            if (_wordTexts.Count < wordFields.Count && !string.IsNullOrEmpty(word))
+            var word = wordInput.text;
+            if (_wordTexts.Count < wordsToBeTested.Count && !string.IsNullOrEmpty(word))
             {
                 _wordTexts.Add(word);
                 _wordProcessor.AddWord(word);
                 AtualizeWords();
             }
 
-            wordField.text = "";
+            wordInput.text = "";
         }
 
         public void ProcessAllAdded()
@@ -43,7 +43,7 @@ namespace AutomateIntegration
             for (int i = 0; i < _wordTexts.Count; i++)
             {
                 var processed = _wordProcessor.Process(_wordTexts[i]);
-                wordFields[i].SetIsProcessed(processed);
+                wordsToBeTested[i].SetIsProcessed(processed);
             }
         }
 
@@ -64,21 +64,21 @@ namespace AutomateIntegration
 
         private void AtualizeWords()
         {
-            foreach (var wordField in wordFields)
+            foreach (var wordField in wordsToBeTested)
             {
                 wordField.Disable();
             }
 
             for (int i = 0; i < _wordTexts.Count; i++)
             {
-                wordFields[i].Enable(_wordTexts[i]);
+                wordsToBeTested[i].Enable(_wordTexts[i]);
             }
         }
 
         protected override List<(object, string)> FieldsToBeValidated()
             => new List<(object, string)> { 
                 (_wordProcessor, nameof(_wordProcessor)),
-                (wordField, nameof(wordField)) 
+                (wordInput, nameof(wordInput)) 
             };
     }
 }

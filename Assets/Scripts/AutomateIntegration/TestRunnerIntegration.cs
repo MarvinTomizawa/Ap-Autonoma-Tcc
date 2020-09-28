@@ -17,14 +17,17 @@ namespace AutomateIntegration
         [SerializeField] private List<TicketIntegration> ticketFields = new List<TicketIntegration>();
         [SerializeField] private List<CommandIntegration> commandsFields = new List<CommandIntegration>();
         [SerializeField] private GameObject testRunnerWindow;
+        
 #pragma warning restore 0649
         
         private QueueBehaviour _queueBehaviour;
         private WordProcessor _wordProcessor;
+        private ErrorScreen _errorScreen;
         private NodeIntegration ActualNode => _wordProcessor.ActualNode.gameObject.GetComponent<NodeIntegration>();
         
         public void Start()
         {
+            _errorScreen = FindObjectOfType<ErrorScreen>();
             _wordProcessor = FindObjectOfType<WordProcessor>();
             _queueBehaviour = FindObjectOfType<QueueBehaviour>();
         }
@@ -65,7 +68,7 @@ namespace AutomateIntegration
 
             if (!processed)
             {
-                Debug.LogError("Não foi possivel processar a palavra");
+                _errorScreen.ShowError(ExceptionsMessages.NaoFoiPossivelProcessar);
                 return;
             }
             

@@ -14,9 +14,4 @@ public class ErrorScreen : MonoBehaviour
         errorScreenObject.SetActive(true);
         errorText.text = errorMessage;
     }
-
-    internal void ShowError(object tamanhoMaximoPreenchido)
-    {
-        throw new NotImplementedException();
-    }
 }
