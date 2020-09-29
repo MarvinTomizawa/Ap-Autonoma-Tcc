@@ -704,10 +704,10 @@ RectTransform:
   m_Father: {fileID: 7050989127956245366}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.15281454, y: 0.11741684}
-  m_AnchorMax: {x: 0.26537097, y: 0.81313896}
-  m_AnchoredPosition: {x: -6.3, y: 0.4300003}
-  m_SizeDelta: {x: -16.44, y: 1.84}
+  m_AnchorMin: {x: 0.15474291, y: 0.11741684}
+  m_AnchorMax: {x: 0.22600001, y: 0.8522779}
+  m_AnchoredPosition: {x: 0.5200043, y: -0.5699997}
+  m_SizeDelta: {x: -0.79999924, y: -0.15999985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2875844526511148490
 CanvasRenderer:
@@ -2624,10 +2624,10 @@ RectTransform:
   m_Father: {fileID: 7050989127956245366}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.7751855, y: 0.07827789}
-  m_AnchorMax: {x: 0.88462913, y: 0.9021526}
-  m_AnchoredPosition: {x: 0.099975586, y: 0.49998474}
-  m_SizeDelta: {x: 83.53, y: 1.06}
+  m_AnchorMin: {x: 0.78659976, y: 0.07827789}
+  m_AnchorMax: {x: 0.87500006, y: 0.9021526}
+  m_AnchoredPosition: {x: -0.4000244, y: 0.49998474}
+  m_SizeDelta: {x: 94.53, y: 1.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8885711823399767974
 CanvasRenderer:
@@ -4185,10 +4185,10 @@ RectTransform:
   m_Father: {fileID: 7050989127956245366}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.008370955, y: 0.07827789}
-  m_AnchorMax: {x: 0.12762906, y: 0.960861}
-  m_AnchoredPosition: {x: -0.1000061, y: -1.0000153}
-  m_SizeDelta: {x: 83.14, y: -1.9400005}
+  m_AnchorMin: {x: 0.022000002, y: 0.07827789}
+  m_AnchorMax: {x: 0.11400001, y: 0.93437827}
+  m_AnchoredPosition: {x: -0.1000061, y: -0.50001526}
+  m_SizeDelta: {x: 97.14, y: -0.94000053}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7050989128707482926
 CanvasRenderer:
@@ -4397,12 +4397,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7050989127956245370}
-        m_MethodName: Disable
-        m_Mode: 1
+      - m_Target: {fileID: 0}
+        m_MethodName: RemoveCommand
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 7050989127956245370}
+          m_ObjectArgumentAssemblyTypeName: AutomateIntegration.CommandIntegration,
+            Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4441,10 +4442,10 @@ RectTransform:
   m_Father: {fileID: 7050989127956245366}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.58900005, y: 0.07827789}
-  m_AnchorMax: {x: 0.6967419, y: 0.9021526}
-  m_AnchoredPosition: {x: -1.2000427, y: 0.49998474}
-  m_SizeDelta: {x: 78.57001, y: 1.06}
+  m_AnchorMin: {x: 0.597, y: 0.07827789}
+  m_AnchorMax: {x: 0.684473, y: 0.9021526}
+  m_AnchoredPosition: {x: -0.20004272, y: 0.49998474}
+  m_SizeDelta: {x: 88.57001, y: 1.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7050989129463654891
 CanvasRenderer:
@@ -4971,7 +4972,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23174194, y: -0.006914556}
   m_AnchorMax: {x: 0.25418547, y: 0.9539477}
-  m_AnchoredPosition: {x: 0.19999695, y: 1.1000004}
+  m_AnchoredPosition: {x: 0.19998169, y: 1.1000004}
   m_SizeDelta: {x: -3.4400024, y: -3.1800003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2735445127691432566
@@ -5267,9 +5268,9 @@ RectTransform:
   m_Father: {fileID: 7050989127956245366}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.577477, y: 0.051795058}
-  m_AnchorMax: {x: 0.58866245, y: 0.9539477}
-  m_AnchoredPosition: {x: -1.2000008, y: -0.39999962}
+  m_AnchorMin: {x: 0.5755486, y: 0.05184739}
+  m_AnchorMax: {x: 0.58673406, y: 0.95400006}
+  m_AnchoredPosition: {x: -0.20000076, y: -0.39999962}
   m_SizeDelta: {x: 0.55999947, y: -0.1800003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5634570662211891795

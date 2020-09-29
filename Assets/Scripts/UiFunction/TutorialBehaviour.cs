@@ -25,8 +25,9 @@ public class TutorialBehaviour : MonoBehaviour
         ShowActualScene();
     }
 
-    public void GoToFirstScene()
+    public void StartTutorial()
     {
+        canvas.SetActive(true);
         HideCurrentScene();
         currentSceneIndex = 0;
         ShowActualScene();
