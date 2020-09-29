@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialBehaviour : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class TutorialBehaviour : MonoBehaviour
     [SerializeField] private GameObject middleLayout;
     [SerializeField] private GameObject lastLayout;
     [SerializeField] private GameObject parentScene;
-    [SerializeField] private TextMeshProUGUI sceneNumber;
+    [SerializeField] private Text sceneNumber;
     [SerializeField] private GameObject canvas;
 #pragma warning restore 0649
 
@@ -22,6 +22,13 @@ public class TutorialBehaviour : MonoBehaviour
     {
         canvas.SetActive(startOpened);
         childScenes = GetChildrenScenesInParentScene();
+        ShowActualScene();
+    }
+
+    public void GoToFirstScene()
+    {
+        HideCurrentScene();
+        currentSceneIndex = 0;
         ShowActualScene();
     }
 
