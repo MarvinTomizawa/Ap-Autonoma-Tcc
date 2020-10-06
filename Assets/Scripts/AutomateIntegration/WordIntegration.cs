@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WordIntegration : IntegrationFieldsValidator
+public class WordIntegration : MonoBehaviour
 {
 #pragma warning disable 0649
-    [SerializeField] private Text textField;
+    [SerializeField] private Dropdown[] products;
 #pragma warning restore 0649
 
     public void Enable(string text)
     {
-        if (IsNotValid) return;
-
         gameObject.SetActive(true);
-        textField.text = text;
+        for (int i = 0; i < text.Length; i++)
+        {
+            products[i].value = int.Parse(text[i].ToString());
+        }
     }
 
     public void Disable()
@@ -24,8 +25,6 @@ public class WordIntegration : IntegrationFieldsValidator
 
     public void SetIsProcessed(bool processed)
     {
-        if (IsNotValid) return;
-
         if (processed)
         {
             gameObject.GetComponent<Image>().color = Color.green;
@@ -35,7 +34,4 @@ public class WordIntegration : IntegrationFieldsValidator
             gameObject.GetComponent<Image>().color = Color.red;
         }
     }
-
-    protected override List<(object, string)> FieldsToBeValidated()
-        => new List<(object, string)> { (textField, nameof(textField)) };
 }

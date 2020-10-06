@@ -12,7 +12,7 @@ namespace AutomateIntegration
 #pragma warning disable 0649
         [SerializeField] private InputField actualNodeField;
         [SerializeField] private InputField nextWordField;
-        [SerializeField] private InputField processedWordField;
+        [SerializeField] private TestWordAddScript testWordAddScript;
         [SerializeField] private InputField testRunnerProcessedWord;
         [SerializeField] private List<TicketIntegration> ticketFields = new List<TicketIntegration>();
         [SerializeField] private List<CommandIntegration> commandsFields = new List<CommandIntegration>();
@@ -34,14 +34,15 @@ namespace AutomateIntegration
 
         public void StartTestRunner()
         {
-            if (IsNotValid || string.IsNullOrEmpty(processedWordField.text)) return;
+            var processedWord = testWordAddScript.TakeWord();
+            if (IsNotValid || string.IsNullOrEmpty(processedWord)) return;
             
             _wordProcessor.InnitNode();
             ActualNode.Select();
             testRunnerWindow.SetActive(true);
             _queueBehaviour.ResetQueue();
 
-            testRunnerProcessedWord.text = processedWordField.text;
+            testRunnerProcessedWord.text = processedWord;
             UpdateNodeAndNextLetter();
             
             ShowCurrentTickets();
@@ -126,7 +127,7 @@ namespace AutomateIntegration
         
         protected override List<(object, string)> FieldsToBeValidated()
             => new List<(object, string)> {
-                (processedWordField, nameof(processedWordField)),
+                (testWordAddScript, nameof(testWordAddScript)),
                 (actualNodeField, nameof(actualNodeField)),
                 (nextWordField, nameof(nextWordField)),
                 (testRunnerWindow, nameof(testRunnerWindow)),

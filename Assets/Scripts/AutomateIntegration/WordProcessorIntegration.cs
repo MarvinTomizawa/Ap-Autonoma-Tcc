@@ -9,7 +9,7 @@ namespace AutomateIntegration
     public class WordProcessorIntegration : IntegrationFieldsValidator
     {
 #pragma warning disable 0649
-        [SerializeField] private InputField wordInput;
+        [SerializeField] private TestWordAddScript wordInput;
         [SerializeField] private List<WordIntegration> wordsToBeTested = new List<WordIntegration>();
 #pragma warning restore 0649
 
@@ -25,15 +25,13 @@ namespace AutomateIntegration
         {
             if (IsNotValid) return;
 
-            var word = wordInput.text;
+            var word = wordInput.TakeWord();
             if (_wordTexts.Count < wordsToBeTested.Count && !string.IsNullOrEmpty(word))
             {
                 _wordTexts.Add(word);
                 _wordProcessor.AddWord(word);
                 AtualizeWords();
             }
-
-            wordInput.text = "";
         }
 
         public void ProcessAllAdded()
@@ -59,6 +57,7 @@ namespace AutomateIntegration
             if (IsNotValid) return;
 
             _wordProcessor.ResetProcessor();
+            _wordTexts.Clear();
             AtualizeWords();
         }
 
