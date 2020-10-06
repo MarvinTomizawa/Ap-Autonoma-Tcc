@@ -18,7 +18,7 @@ namespace AutomateBase
         public void ResetQueue()
         {
             _tickets = new Stack<Ticket>();
-            _tickets.Push(new Ticket('Z'));
+            _tickets.Push(new Ticket('0'));
         }
 
         public bool ProcessItem(Ticket processedWord, IEnumerable<Ticket> insertedWords)

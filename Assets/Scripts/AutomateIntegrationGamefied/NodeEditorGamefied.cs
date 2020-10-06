@@ -64,7 +64,7 @@ namespace Assets.Scripts.AutomateIntegrationGamefied
             }
 
             var dropdownValue = industryField.value;
-            var processedWord = productField.value.ToString()[0];
+            var processedWord = (productField.value + 1).ToString()[0];
             var poppedTicket = poppedTicketField.value.ToString()[0];
 
             string pushedTicket = "";

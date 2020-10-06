@@ -29,7 +29,7 @@ public class Command
     {
         if (ticket != null)
         {
-            return PoppedTicket?.Equals(ticket) == true;
+            return PoppedTicket?.Letter == ticket.Letter;
         }
 
         if (ticketLetter.HasValue)
