@@ -11,7 +11,7 @@ namespace AutomateIntegration
     {
 #pragma warning disable 0649
         [SerializeField] private InputField actualNodeField;
-        [SerializeField] private InputField nextWordField;
+        [SerializeField] private Dropdown nextWordField;
         [SerializeField] private TestWordAddScript testWordAddScript;
         [SerializeField] private InputField testRunnerProcessedWord;
         [SerializeField] private List<TicketIntegration> ticketFields = new List<TicketIntegration>();
@@ -89,7 +89,7 @@ namespace AutomateIntegration
         private void UpdateNodeAndNextLetter()
         {
             actualNodeField.text = _wordProcessor.ActualNode.NodeName;
-            nextWordField.text = testRunnerProcessedWord.text.Length >= 1 ? testRunnerProcessedWord.text.Substring(0,1) : "";
+            nextWordField.value = testRunnerProcessedWord.text.Length >= 1 ? int.Parse(testRunnerProcessedWord.text.Substring(0,1)) : 0;
 
             foreach (var commandIntegration in commandsFields)
             {

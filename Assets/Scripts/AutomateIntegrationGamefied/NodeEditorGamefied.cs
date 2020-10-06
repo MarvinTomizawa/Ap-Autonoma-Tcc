@@ -45,7 +45,7 @@ namespace Assets.Scripts.AutomateIntegrationGamefied
             _nodeIntegration.Select();
             nodeText.text = $"Nó selecionado: {nodeSelected.GetNodeText()}";
             industryField.options = _nodeIntegration.GetNodes().Select(x => new Dropdown.OptionData(x, industrySpriteMap.Map[x])).ToList();
-            productField.options = _nodeIntegration.GetProducts().Select(x => new Dropdown.OptionData(productSpriteMap.Map[x])).ToList();
+            productField.options = _nodeIntegration.GetProducts().Select(x => new Dropdown.OptionData(x.ToString(), productSpriteMap.Map[x])).ToList();
             industryField.value = 0;
             productField.value = 0;
 
@@ -64,7 +64,7 @@ namespace Assets.Scripts.AutomateIntegrationGamefied
             }
 
             var dropdownValue = industryField.value;
-            var processedWord = (productField.value + 1).ToString()[0];
+            var processedWord = (int.Parse(productField.options[productField.value].text) + 1).ToString()[0];
             var poppedTicket = poppedTicketField.value.ToString()[0];
 
             string pushedTicket = "";
