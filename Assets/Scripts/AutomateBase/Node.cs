@@ -12,6 +12,7 @@ namespace AutomateBase
         public string NodeName;
         public IList<Command> Commands { get; private set; } = new List<Command>();
         public bool FinishedProcessing => _queueBehaviour.IsEmpty;
+        public int CommandCount => Commands.Count;
 
         private QueueBehaviour _queueBehaviour;
 

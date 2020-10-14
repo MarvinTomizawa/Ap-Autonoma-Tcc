@@ -9,6 +9,21 @@ public class WordIntegration : MonoBehaviour
     [SerializeField] private Dropdown[] products;
 #pragma warning restore 0649
 
+    public string GetWord()
+    {
+        string word = "";
+
+        foreach (var item in products)
+        {
+            if (item.value != 0)
+            {
+                word += item.value.ToString();
+            }
+        }
+
+        return word;
+    }
+
     public void Enable(string text)
     {
         gameObject.SetActive(true);

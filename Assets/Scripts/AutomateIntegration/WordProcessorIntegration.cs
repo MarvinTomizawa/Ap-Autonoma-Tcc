@@ -11,14 +11,14 @@ namespace AutomateIntegration
 #pragma warning disable 0649
         [SerializeField] private TestWordAddScript wordInput;
         [SerializeField] private List<WordIntegration> wordsToBeTested = new List<WordIntegration>();
+        [SerializeField] private WordProcessor _wordProcessor;
 #pragma warning restore 0649
 
         private readonly IList<string> _wordTexts = new List<string>();
-        private WordProcessor _wordProcessor;
-
-        public void Start()
+        
+        public void Awake()
         {
-            _wordProcessor = FindObjectOfType<WordProcessor>();
+            _wordProcessor.InnitNode();
         }
 
         public void AddWord()
@@ -76,8 +76,7 @@ namespace AutomateIntegration
 
         protected override List<(object, string)> FieldsToBeValidated()
             => new List<(object, string)> { 
-                (_wordProcessor, nameof(_wordProcessor)),
-                (wordInput, nameof(wordInput)) 
+                (_wordProcessor, nameof(_wordProcessor))
             };
     }
 }

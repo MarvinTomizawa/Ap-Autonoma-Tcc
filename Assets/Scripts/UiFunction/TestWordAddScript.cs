@@ -3,8 +3,9 @@ using UnityEngine.UI;
 
 public class TestWordAddScript : MonoBehaviour
 {
+#pragma warning disable 0649
     [SerializeField] private Dropdown[] products;
-    
+#pragma warning restore 0649
     public string TakeWord()
     {
         string word = "";
