@@ -13,13 +13,13 @@ namespace AutomateIntegration
         [SerializeField] private InputField actualNodeField;
         [SerializeField] private Dropdown nextWordField;
         [SerializeField] private TestWordAddScript testWordAddScript;
-        [SerializeField] private InputField testRunnerProcessedWord;
+        [SerializeField] private Dropdown[] testRunnerProcessedLetters;
         [SerializeField] private List<TicketIntegration> ticketFields = new List<TicketIntegration>();
         [SerializeField] private List<CommandIntegration> commandsFields = new List<CommandIntegration>();
         [SerializeField] private GameObject testRunnerWindow;
-        
 #pragma warning restore 0649
-        
+
+        private string wordToBeProcessed;
         private QueueBehaviour _queueBehaviour;
         private WordProcessor _wordProcessor;
         private ErrorScreen _errorScreen;
@@ -36,24 +36,23 @@ namespace AutomateIntegration
         {
             var processedWord = testWordAddScript.TakeWord();
             if (IsNotValid || string.IsNullOrEmpty(processedWord)) return;
-            
+
             _wordProcessor.InnitNode();
             ActualNode.Select();
             testRunnerWindow.SetActive(true);
             _queueBehaviour.ResetQueue();
 
-            testRunnerProcessedWord.text = processedWord;
+            SetWordToBeProcessed(processedWord);
             UpdateNodeAndNextLetter();
-            
+
             ShowCurrentTickets();
         }
-        
+
         public void ProcessNextLetter()
         {
             if (IsNotValid) return;
-            
-            var wordToBeProcessed = testRunnerProcessedWord.text;
-            
+            string wordToBeProcessed = GetWordToBeProcessed();
+
             if (wordToBeProcessed.Length == 0)
             {
                 Debug.LogWarning("Todas palavras ja foram processadas");
@@ -72,8 +71,8 @@ namespace AutomateIntegration
                 _errorScreen.ShowError(ExceptionsMessages.NaoFoiPossivelProcessar);
                 return;
             }
-            
-            testRunnerProcessedWord.text = wordToBeProcessed.Length >= 1 ? wordToBeProcessed.Substring(1) : "";
+
+            SetWordToBeProcessed(wordToBeProcessed.Length >= 1 ? wordToBeProcessed.Substring(1) : "");
             UpdateNodeAndNextLetter();
             ShowCurrentTickets();
         }
@@ -86,10 +85,31 @@ namespace AutomateIntegration
             testRunnerWindow.SetActive(false);
         }
 
+        private void SetWordToBeProcessed(string processedWord)
+        {
+            foreach (var testRunnerLetter in testRunnerProcessedLetters)
+            {
+                testRunnerLetter.value = 0;
+            }
+
+            wordToBeProcessed = processedWord;
+            for (int i = 0; i < processedWord.Length; i++)
+            {
+                testRunnerProcessedLetters[i].value = int.Parse(processedWord[i].ToString());
+            }
+        }
+
+        private string GetWordToBeProcessed()
+        {
+            return wordToBeProcessed;
+        }
+
         private void UpdateNodeAndNextLetter()
         {
             actualNodeField.text = _wordProcessor.ActualNode.NodeName;
-            nextWordField.value = testRunnerProcessedWord.text.Length >= 1 ? int.Parse(testRunnerProcessedWord.text.Substring(0,1)) : 0;
+            var wordToBeProcessed = GetWordToBeProcessed();
+
+            nextWordField.value = wordToBeProcessed.Length >= 1 ? int.Parse(wordToBeProcessed.Substring(0,1)) : 0;
 
             foreach (var commandIntegration in commandsFields)
             {
@@ -131,7 +151,7 @@ namespace AutomateIntegration
                 (actualNodeField, nameof(actualNodeField)),
                 (nextWordField, nameof(nextWordField)),
                 (testRunnerWindow, nameof(testRunnerWindow)),
-                (testRunnerProcessedWord, nameof(testRunnerProcessedWord)),
+                (testRunnerProcessedLetters, nameof(testRunnerProcessedLetters)),
                 (_wordProcessor, nameof(_wordProcessor)),
                 (_queueBehaviour, nameof(_queueBehaviour))
             };

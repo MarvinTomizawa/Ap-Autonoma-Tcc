@@ -1,0 +1,1087 @@
+fileFormatVersion: 2
+guid: 9a95ff17a97f4954f91db861c4c373db
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_0
+    21300002: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_1
+    21300004: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_2
+    21300006: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_3
+    21300008: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_4
+    21300010: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_5
+    21300012: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_6
+    21300014: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_7
+    21300016: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_8
+    21300018: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_9
+    21300020: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_10
+    21300022: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_11
+    21300024: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_12
+    21300026: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_13
+    21300028: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_14
+    21300030: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_15
+    21300032: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_16
+    21300034: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_17
+    21300036: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_18
+    21300038: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_19
+    21300040: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_20
+    21300042: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_21
+    21300044: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_22
+    21300046: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_23
+    21300048: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_24
+    21300050: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_25
+    21300052: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_26
+    21300054: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_27
+    21300056: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_28
+    21300058: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_29
+    21300060: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_30
+    21300062: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_31
+    21300064: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_32
+    21300066: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_33
+    21300068: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_34
+    21300070: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_35
+    21300072: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_36
+    21300074: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_37
+    21300076: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_38
+    21300078: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_39
+    21300080: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_40
+    21300082: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_41
+    21300084: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_42
+    21300086: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_43
+    21300088: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_44
+    21300090: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_45
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 3
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 3
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 3
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 3
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_0
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f0c7959183991a4a8cc14f698bf8d13
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_1
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 280
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 798932481a3d6324d8abc0e4befc595d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_2
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a0d64c9ad402bf4e99c6503e49fb420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_3
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 280
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e58f029bfc3d8040a10a2e7e61b37ba
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_4
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2567910bfc3ec5642a66c04219dbc06a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_5
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 263
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26c6b53935c9be649ae9a644277fea8d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_6
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 263
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89acd067788ef74479db593f479249e9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_7
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 263
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd258c5c8ba5e5a4a95ebded865cfa7f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_8
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 280
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1bb8feeabe490b47914d53f4a9eaa87
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_9
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c9ecb8d81f69a4f8a4463bfd384925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_10
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf1e90f3acbef4c40a5962356007dc2a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_11
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 214e1a5854833644fb358a8d13e3870e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_12
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 280
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa6b75577642f1d4cac080a6167efffb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_13
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 263
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df63cbbab419a34c9a9d03c6ff6eb36
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_14
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 280
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bce8e5a72618c6498fae6706a93f790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_15
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 263
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bcf0f352e9508340975ab0b0b00a1db
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_16
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 263
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db6060b9b13b18840963aadc0cdda6f9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_17
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 280
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cfe02d3468d66b4786322d547cdc04f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_18
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 246
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb1fa2abfa7d9949967ad10264b8dce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_19
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 246
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e3c1e2841f26ef4b9116bc8222dfc7b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_20
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 229
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17ccbe25ade0d4f46ab34fc24a21330d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_21
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 229
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c5e0cf2fa351b4f83179f1c0d7ed47
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_22
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 246
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad79e6d1d3c286548b2dd27beca9287b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_23
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 246
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f3bcee62f575aa419fb6b64fd6b8d43
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_24
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 508f014cf140ea449b455633e54eefa7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_25
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7015933b68802744a8bd178b15ee479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_26
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 297
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15ba478e74b17e2448734da01e1d45f8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_27
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 280
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c333601a2636c84ea6021386e5faadf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_28
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 263
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc0775a15548c2488ab27f0c3485a88
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_29
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 263
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 685795593dd38574f9274facc5218fab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_30
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 280
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5716974932d3b9f4899754b5135b5e04
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_31
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 280
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96c27bff8ada01e40a92f6f5a7983b82
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_32
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 263
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6fcd1e3a0c78434ebd0580bb11432d1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_33
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 331
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24b855557ec3ea945a8a638913d36f13
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_34
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 348
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78c0b68fe6218cb44872dfb58a7dbbe2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_35
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 229
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6160c5aff7261546bdf819b6999f164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_36
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 229
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd14898fcb9e9943b661c2d6b75bc54
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_37
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 229
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1d13c7e53b06824fab7e1f5f05ed20f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_38
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 212
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4acad67756d51644b077e21bbf972b9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_39
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 212
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a5dc349f73d4c34596e7674b1db6b1f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_40
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 212
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c0896c8cb778a44293d0c1892d9d440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_41
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 212
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7aa83fa5bdc3c84a938feeb6940a3a8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_42
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 195
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a84dc05c0e617bf46b94b4604fe4e413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_43
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 195
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849e8774d46aabc4d933df5c3c720d86
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_44
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 195
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe9699872c24074a9d517ee96b14326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Custom Edited - Sonic the Hedgehog Customs - Sky Base Zone Sonic Genesis-Style_45
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 195
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06b431c12effab842b6547210c0ef226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6ccba84ddb9bac245abbea4e4e73232b
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
