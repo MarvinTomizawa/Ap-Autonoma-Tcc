@@ -6,11 +6,11 @@ namespace AutomateIntegration
 {
     public class TicketIntegration : MonoBehaviour
     {
-        private Text _text;
+        private Dropdown _text;
 
         public void Awake()
         {
-            _text = gameObject.GetComponentInChildren<Text>(true);
+            _text = gameObject.GetComponentInChildren<Dropdown>(true);
         }
         
         public void Disable()
@@ -21,7 +21,7 @@ namespace AutomateIntegration
         public void Enable(char ticket)
         {
             gameObject.SetActive(true);
-            _text.text = Convert.ToString(ticket);
+            _text.value = int.Parse(ticket.ToString());
         }
     }
 }

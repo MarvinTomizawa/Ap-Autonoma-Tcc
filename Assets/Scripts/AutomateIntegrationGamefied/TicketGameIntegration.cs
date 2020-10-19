@@ -11,7 +11,7 @@ namespace Assets.Scripts.AutomateIntegrationGamefied
         [SerializeField] private GameObject[] enabledGameObjects;
 #pragma warning restore 0649
 
-        public int Value => valueField.value;
+        public int Value => int.Parse(valueField.options[valueField.value].text) - 1;
         public bool IsEnabled;
 
         public void Disable()
