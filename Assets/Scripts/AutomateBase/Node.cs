@@ -23,7 +23,10 @@ namespace AutomateBase
 
         public void ResetQueue()
         {
-            _queueBehaviour.ResetQueue();
+            if (_queueBehaviour != null)
+            {
+                _queueBehaviour.ResetQueue();
+            }
         }
 
         public bool ProcessLetter(char letter, out Node nextNode)
