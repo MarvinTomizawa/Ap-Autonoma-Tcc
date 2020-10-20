@@ -44,7 +44,7 @@ namespace Assets.Scripts.AutomateIntegrationGamefied
             _nodeIntegration = nodeSelected;
             _nodeIntegration.Select();
             nodeText.text = $"Nó selecionado: {nodeSelected.GetNodeText()}";
-            industryField.options = _nodeIntegration.GetNodes().Select(x => new Dropdown.OptionData(x, industrySpriteMap.Map[x])).ToList();
+            industryField.options = _nodeIntegration.GetNodes().Select(x => new Dropdown.OptionData(x, industrySpriteMap.MapSprite[x])).ToList();
             productField.options = _nodeIntegration.GetProducts().Select(x => new Dropdown.OptionData(x.ToString(), productSpriteMap.Map[x])).ToList();
             industryField.value = 0;
             productField.value = 0;

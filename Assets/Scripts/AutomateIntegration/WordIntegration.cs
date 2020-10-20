@@ -1,13 +1,28 @@
-﻿using Assets.Scripts.Exception;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class WordIntegration : MonoBehaviour
 {
 #pragma warning disable 0649
+    [Header("Game Components")]
     [SerializeField] private Dropdown[] products;
+    [SerializeField] private GameObject correctImage;
+    [SerializeField] private GameObject incorrectImage;
+
+    [Header("Component Options")]
+    [SerializeField] private bool shouldBeCorrect = true;
 #pragma warning restore 0649
+
+    public bool ShouldBeCorrect => shouldBeCorrect;
+
+    private void Start()
+    {
+        if (correctImage != null && incorrectImage != null)
+        {
+            correctImage.SetActive(shouldBeCorrect);
+            incorrectImage.SetActive(!shouldBeCorrect);
+        }
+    }
 
     public string GetWord()
     {

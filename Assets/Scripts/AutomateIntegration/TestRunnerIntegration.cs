@@ -10,15 +10,17 @@ namespace AutomateIntegration
     public class TestRunnerIntegration : IntegrationFieldsValidator
     {
 #pragma warning disable 0649
-        [SerializeField] private InputField actualNodeField;
+        [SerializeField] private Dropdown actualNodeField;
         [SerializeField] private Dropdown nextWordField;
         [SerializeField] private TestWordAddScript testWordAddScript;
         [SerializeField] private Dropdown[] testRunnerProcessedLetters;
         [SerializeField] private List<TicketIntegration> ticketFields = new List<TicketIntegration>();
         [SerializeField] private List<CommandIntegration> commandsFields = new List<CommandIntegration>();
         [SerializeField] private GameObject testRunnerWindow;
+        [SerializeField] private GameObject _successScreen;
 #pragma warning restore 0649
 
+        private IndustrySpritesMaps _industrySpritesMaps;
         private string wordToBeProcessed;
         private QueueBehaviour _queueBehaviour;
         private WordProcessor _wordProcessor;
@@ -27,6 +29,7 @@ namespace AutomateIntegration
         
         public void Start()
         {
+            _industrySpritesMaps = FindObjectOfType<IndustrySpritesMaps>();
             _errorScreen = FindObjectOfType<ErrorScreen>();
             _wordProcessor = FindObjectOfType<WordProcessor>();
             _queueBehaviour = FindObjectOfType<QueueBehaviour>();
@@ -55,7 +58,7 @@ namespace AutomateIntegration
 
             if (wordToBeProcessed.Length == 0)
             {
-                Debug.LogWarning("Todas palavras ja foram processadas");
+                _successScreen.SetActive(true);
                 return;
             }
 
@@ -106,7 +109,7 @@ namespace AutomateIntegration
 
         private void UpdateNodeAndNextLetter()
         {
-            actualNodeField.text = _wordProcessor.ActualNode.NodeName;
+            actualNodeField.value = _industrySpritesMaps.MapValue[_wordProcessor.ActualNode.NodeName];
             var wordToBeProcessed = GetWordToBeProcessed();
 
             nextWordField.value = wordToBeProcessed.Length >= 1 ? int.Parse(wordToBeProcessed.Substring(0,1)) : 0;

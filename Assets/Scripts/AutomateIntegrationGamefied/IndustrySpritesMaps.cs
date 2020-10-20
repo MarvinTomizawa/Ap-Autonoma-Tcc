@@ -9,15 +9,23 @@ public class IndustrySpritesMaps : MonoBehaviour
     [SerializeField] private Sprite industryC;
 #pragma warning restore 0649
 
-    public Dictionary<string, Sprite> Map;
+    public Dictionary<string, Sprite> MapSprite;
+    public Dictionary<string, int> MapValue;
 
     public void Start()
     {
-        Map = new Dictionary<string, Sprite>
+        MapSprite = new Dictionary<string, Sprite>
             {
                 { "A", industryA },
                 { "B", industryB },
                 { "C", industryC }
+            };
+
+        MapValue = new Dictionary<string, int>
+            {
+                { "A", 0 },
+                { "B", 1 },
+                { "C", 2 }
             };
     }
 }

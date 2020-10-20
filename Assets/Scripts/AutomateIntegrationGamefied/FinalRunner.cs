@@ -34,9 +34,11 @@ public class FinalRunner : MonoBehaviour
         for (int i = 0; i < wordsToBeTested.Length; i++)
         {
             var processed = wordProcessor.Process(wordsToBeTested[i].GetWord());
-            wordsToBeTested[i].SetIsProcessed(processed);
+            var isRight = processed == wordsToBeTested[i].ShouldBeCorrect;
 
-            if (processed)
+            wordsToBeTested[i].SetIsProcessed(isRight);
+
+            if (isRight)
             {
                 CorrectQuantity++;
             }

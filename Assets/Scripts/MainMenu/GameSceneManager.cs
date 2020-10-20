@@ -5,7 +5,12 @@ public class GameSceneManager : MonoBehaviour
 {
     public void LoadMainMenu()
     {
-        LoadLevel("MenuScene");
+        LoadLevel("MainMenu");
+    }
+
+    public void LoadLevelsScene()
+    {
+        LoadLevel("LevelScene");
     }
 
     public void LoadFirstLevel()
