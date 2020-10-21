@@ -137,6 +137,8 @@ namespace AutomateIntegration
         private void ShowCurrentTickets()
         {
             var tickets = _queueBehaviour.GetTicketsAsList();
+            tickets.Reverse();
+
             foreach (var ticketIntegration in ticketFields)
             {
                 ticketIntegration.Disable();

@@ -21,7 +21,7 @@ namespace AutomateBase
             _tickets.Push(new Ticket('0'));
         }
 
-        public bool ProcessItem(Ticket processedWord, IEnumerable<Ticket> insertedWords)
+        public bool ProcessItem(Ticket processedWord, List<Ticket> insertedWords)
         {
             if (_tickets.Count == 0)
             {
