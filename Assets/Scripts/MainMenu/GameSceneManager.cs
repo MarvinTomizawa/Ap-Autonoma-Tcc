@@ -15,7 +15,7 @@ public class GameSceneManager : MonoBehaviour
 
     public void LoadFirstLevel()
     {
-        LoadLevel("BaseSceneGamified");
+        LoadLevel("Level1");
     }
 
     public void LoadSecondLevel()
