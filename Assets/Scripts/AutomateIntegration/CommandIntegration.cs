@@ -19,14 +19,13 @@ namespace AutomateIntegration
         [SerializeField] private Dropdown originNode;
         [SerializeField] private Dropdown destinyNode;
 #pragma warning restore 0649
+        private IndustrySpritesMaps _industrySpritesMaps;
 
-        private readonly Dictionary<string, int> industryKeyMap = new Dictionary<string, int>
+        private void Start()
         {
-            {"A", 0},
-            {"B", 1},
-            {"C", 2}
-        };
-
+            _industrySpritesMaps = FindObjectOfType<IndustrySpritesMaps>();
+        }
+        
         public Guid Id { get; private set; }
 
         public void Disable()
@@ -43,8 +42,8 @@ namespace AutomateIntegration
             SetPushedTickets(pushedTicketsValue);
             poppedTicket.value = int.Parse(poppedTicketValue.ToString());
             processedWord.value = int.Parse(processedWordValue.ToString());
-            originNode.value = industryKeyMap[originNodeValue];
-            destinyNode.value = industryKeyMap[destinyNodeValue];
+            originNode.value = _industrySpritesMaps.MapValue[originNodeValue];
+            destinyNode.value = _industrySpritesMaps.MapValue[destinyNodeValue];
         }
 
         private void SetPushedTickets(string pushedTicketsValue)

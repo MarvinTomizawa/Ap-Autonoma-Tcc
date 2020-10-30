@@ -50,7 +50,7 @@ namespace AutomateBase
 
             nextNode = command.Node;
 
-            return _queueBehaviour.ProcessItem(command.PoppedTicket, command.PushedTickets);
+            return _queueBehaviour.AddTickets(command.PoppedTicket, command.PushedTickets);
         }
 
         public void AddCommand(char processedWord, char poppedTicket, string pushedTicket, Node node,  int index)
