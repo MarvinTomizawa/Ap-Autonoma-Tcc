@@ -12,7 +12,7 @@ public class IndustrySpritesMaps : MonoBehaviour
     public Dictionary<string, Sprite> MapSprite;
     public Dictionary<string, int> MapValue;
 
-    public void Start()
+    public void Awake()
     {
         MapSprite = new Dictionary<string, Sprite>
             {

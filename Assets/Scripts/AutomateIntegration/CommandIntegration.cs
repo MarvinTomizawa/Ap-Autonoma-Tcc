@@ -21,11 +21,11 @@ namespace AutomateIntegration
 #pragma warning restore 0649
         private IndustrySpritesMaps _industrySpritesMaps;
 
-        private void Start()
+        public void Awake()
         {
             _industrySpritesMaps = FindObjectOfType<IndustrySpritesMaps>();
         }
-        
+
         public Guid Id { get; private set; }
 
         public void Disable()
